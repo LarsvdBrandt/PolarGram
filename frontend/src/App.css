@@ -1,0 +1,32 @@
+.navbar-Logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 0.5rem;
+}
+
+.navbar-title {
+  display: inline-block;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+  color: black;
+}
+
+.navbar-title:hover,
+.navbar-title:focus {
+  text-decoration: none;
+  color: rgb(129, 117, 117);
+}
+
+.navbar-rechts:hover,
+.navbar-rechts:focus {  
+  text-decoration: none;
+  color: rgb(129, 117, 117);
+}
+
+/* .navbar-login {
+  text-align: right;
+} */

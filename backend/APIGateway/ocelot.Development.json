@@ -9,7 +9,18 @@
           "Port": 5001
         }
       ],
-      "UpstreamPathTemplate": "/PostService/{CatchAll}"
+      "UpstreamPathTemplate": "/ServicePost/{CatchAll}"
+    },
+    {
+      "DownstreamPathTemplate": "/{CatchAll}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "UpstreamPathTemplate": "/ImageApi/{CatchAll}"
     }
   ],
   "GlobalConfiguration": {

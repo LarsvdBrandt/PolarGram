@@ -25,7 +25,7 @@ namespace ServicePost.Controllers
         [HttpGet("ByName/{id}")]
         public async Task<ActionResult<IEnumerable<PGPost>>> GetPGPostsByName(string id)
         {
-            var pgPosts = _context.PGPosts.Where(a => a.Title == id).ToList();
+            var pgPosts = _context.PGPosts.Where(a => a.Name == id).ToList();
 
             return pgPosts;
         }

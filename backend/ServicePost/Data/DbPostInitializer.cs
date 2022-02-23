@@ -21,27 +21,27 @@ namespace ServicePost.Data
             {
                 new PGPost
                 {
-                    Title="Gerwin Lips",
-                    ImgSrc="test1.jpg",
-                    Comment="Mooie natuurfoto met waterval",
+                    Name="Gerwin Lips",
+                    Date="22-02-2022",
+                    ImgSrc="img1.PNG",
                 },
                 new PGPost
                 {
-                    Title="Joost Bogie",
-                    ImgSrc="test2.jpg",
-                    Comment="Vandaag een nieuwe gameboy gekocht",
+                    Name="Joost Bogie",
+                    Date="23-02-2022",
+                    ImgSrc="img2.PNG",
                 },
                 new PGPost
                 {
-                    Title="Ken Petit",
-                    ImgSrc="test3.jpg",
-                    Comment="Mario eindelijk gekocht, van plan om hem meteen uit te spelen",
+                    Name="Ken Petit",
+                    Date="24-02-2022",
+                    ImgSrc="img3.PNG",
                 },
                 new PGPost
                 {
-                    Title="Vincent Stolwijk",
-                    ImgSrc="test4.jpg",
-                    Comment="Wie zou de verkiezing gaan winnen?",
+                    Name="Vincent Stolwijk",
+                    Date="25-02-2022",
+                    ImgSrc="img4.PNG",
                 },
             };
             foreach (PGPost pgPost in pgPosts)

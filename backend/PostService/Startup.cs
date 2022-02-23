@@ -28,7 +28,7 @@ namespace PostService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<SFPostContext>(options =>
+            services.AddDbContext<PGPostContext>(options =>
    options.UseInMemoryDatabase("PostServiceDatabase"));
             services.AddControllers();
             services.AddCors();

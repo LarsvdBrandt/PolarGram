@@ -8,44 +8,44 @@ namespace PostService.Data
 {
     public static class DbPostInitializer
     {
-        public static void Initialize(SFPostContext context)
+        public static void Initialize(PGPostContext context)
         {
             context.Database.EnsureCreated();
-            if (context.SFPosts.Any())
+            if (context.PGPosts.Any())
             {
                 return;
             }
 
-            var sfPosts = new SFPost[]
+            var pgPosts = new PGPost[]
             {
-                new SFPost
+                new PGPost
                 {
                     Title="Gerwin Lips",
                     ImgSrc="biken.jpg",
                     Comment="Mooie natuurfoto met waterval",
                 },
-                new SFPost
+                new PGPost
                 {
                     Title="Joost Bogie",
                     ImgSrc="fallguys.jpg",
                     Comment="Vandaag een nieuwe gameboy gekocht",
                 },
-                new SFPost
+                new PGPost
                 {
                     Title="Ken Petit",
                     ImgSrc="size1.jpg",
                     Comment="Mario eindelijk gekocht, van plan om hem meteen uit te spelen",
                 },
-                new SFPost
+                new PGPost
                 {
                     Title="Vincent Stolwijk",
                     ImgSrc="game1.png",
                     Comment="Wie zou de verkiezing gaan winnen?",
                 },
             };
-            foreach (SFPost sfPost in sfPosts)
+            foreach (PGPost pgPost in pgPosts)
             {
-                context.SFPosts.Add(sfPost);
+                context.PGPosts.Add(pgPost);
             }
             context.SaveChanges();
         }

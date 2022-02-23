@@ -12,57 +12,57 @@ namespace PostService.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class SFPostsController : ControllerBase
+    public class PGPostsController : ControllerBase
     {
-        private readonly SFPostContext _context;
+        private readonly PGPostContext _context;
 
-        public SFPostsController(SFPostContext context)
+        public PGPostsController(PGPostContext context)
         {
             _context = context;
         }
 
-        // GET: api/SFPosts/Name
+        // GET: api/PGPosts/Name
         [HttpGet("ByName/{id}")]
-        public async Task<ActionResult<IEnumerable<SFPost>>> GetSFPostsByName(string id)
+        public async Task<ActionResult<IEnumerable<PGPost>>> GetPGPostsByName(string id)
         {
-            var sfPosts = _context.SFPosts.Where(a => a.Title == id).ToList();
+            var pgPosts = _context.PGPosts.Where(a => a.Title == id).ToList();
 
-            return sfPosts;
+            return pgPosts;
         }
 
-        // GET: api/SFPosts
+        // GET: api/PGPosts
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<SFPost>>> GetSFPosts()
+        public async Task<ActionResult<IEnumerable<PGPost>>> GetPGPosts()
         {
-            return await _context.SFPosts.ToListAsync();
+            return await _context.PGPosts.ToListAsync();
         }
 
-        // GET: api/SFPosts/5
+        // GET: api/PGPosts/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<SFPost>> GetSFPost(long id)
+        public async Task<ActionResult<PGPost>> GetPGPost(long id)
         {
-            var sFPost = await _context.SFPosts.FindAsync(id);
+            var pGPost = await _context.PGPosts.FindAsync(id);
 
-            if (sFPost == null)
+            if (pGPost == null)
             {
                 return NotFound();
             }
 
-            return sFPost;
+            return pGPost;
         }
 
-        // PUT: api/SFPosts/5
+        // PUT: api/PGPosts/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutSFPost(long id, SFPost sFPost)
+        public async Task<IActionResult> PutPGPost(long id, PGPost pGPost)
         {
-            if (id != sFPost.id)
+            if (id != pGPost.id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(sFPost).State = EntityState.Modified;
+            _context.Entry(pGPost).State = EntityState.Modified;
 
             try
             {
@@ -70,7 +70,7 @@ namespace PostService.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SFPostExists(id))
+                if (!PGPostExists(id))
                 {
                     return NotFound();
                 }
@@ -83,37 +83,37 @@ namespace PostService.Controllers
             return NoContent();
         }
 
-        // POST: api/SFPosts
+        // POST: api/PGPosts
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<SFPost>> PostSFPost(SFPost sFPost)
+        public async Task<ActionResult<PGPost>> PostSPGost(PGPost pGPost)
         {
-            _context.SFPosts.Add(sFPost);
+            _context.PGPosts.Add(pGPost);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetSFPost", new { id = sFPost.id }, sFPost);
+            return CreatedAtAction("GetPGPost", new { id = pGPost.id }, pGPost);
         }
 
-        // DELETE: api/SFPosts/5
+        // DELETE: api/PGPosts/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<SFPost>> DeleteSFPost(long id)
+        public async Task<ActionResult<PGPost>> DeletePGPost(long id)
         {
-            var sFPost = await _context.SFPosts.FindAsync(id);
-            if (sFPost == null)
+            var pGPost = await _context.PGPosts.FindAsync(id);
+            if (pGPost == null)
             {
                 return NotFound();
             }
 
-            _context.SFPosts.Remove(sFPost);
+            _context.PGPosts.Remove(pGPost);
             await _context.SaveChangesAsync();
 
-            return sFPost;
+            return pGPost;
         }
 
-        private bool SFPostExists(long id)
+        private bool PGPostExists(long id)
         {
-            return _context.SFPosts.Any(e => e.id == id);
+            return _context.PGPosts.Any(e => e.id == id);
         }
     }
 }

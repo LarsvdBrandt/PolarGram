@@ -30,7 +30,7 @@ namespace PostService
 
                 try
                 {
-                    var context = services.GetRequiredService<SFPostContext>();
+                    var context = services.GetRequiredService<PGPostContext>();
                     DbPostInitializer.Initialize(context);
                 }
                 catch (Exception ex)

@@ -7,20 +7,20 @@ using PostService.Models;
 
 namespace PostService.Data
 {
-    public class SFPostContext : DbContext
+    public class PGPostContext : DbContext
     {
-        public SFPostContext(DbContextOptions<SFPostContext> options)
+        public PGPostContext(DbContextOptions<PGPostContext> options)
     : base(options)
         {
         }
 
-        public DbSet<SFPost> SFPosts { get; set; }
+        public DbSet<PGPost> PGPosts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             
-            modelBuilder.Entity<SFPost>().ToTable("SFPost");
+            modelBuilder.Entity<PGPost>().ToTable("PGPost");
         }
 
     }

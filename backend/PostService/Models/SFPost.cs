@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PostService.Models
 {
-    public class SFPost
+    public class PGPost
     {
         [Key]
         public long id { get; set; }

@@ -5,44 +5,11 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "postservice",
-          "Port": 80
+          "Host": "localhost",
+          "Port": 5001
         }
       ],
       "UpstreamPathTemplate": "/PostService/{CatchAll}"
-    },
-    {
-      "DownstreamPathTemplate": "/{CatchAll}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "likeservice",
-          "Port": 80
-        }
-      ],
-      "UpstreamPathTemplate": "/LikeService/{CatchAll}"
-    },
-    {
-      "DownstreamPathTemplate": "/{CatchAll}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "commentservice",
-          "Port": 80
-        }
-      ],
-      "UpstreamPathTemplate": "/CommentService/{CatchAll}"
-    },
-    {
-      "DownstreamPathTemplate": "/{CatchAll}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "imageapi",
-          "Port": 80
-        }
-      ],
-      "UpstreamPathTemplate": "/ImageApi/{CatchAll}"
     }
   ],
   "GlobalConfiguration": {

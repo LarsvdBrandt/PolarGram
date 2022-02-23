@@ -4,7 +4,6 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup>
-    <ActiveDebugProfile>Docker</ActiveDebugProfile>
-    <NameOfLastUsedPublishProfile>registry.hub.docker.com_434565</NameOfLastUsedPublishProfile>
+    <ActiveDebugProfile>APIGateway</ActiveDebugProfile>
   </PropertyGroup>
 </Project>

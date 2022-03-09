@@ -15,6 +15,9 @@ function Navbarr() {
         <Link to="/" className="navbar-title">
           <img className="navbar-Logo" src={polargramlogo} alt="Logo" /><span className='navbar-title'>PolarGram</span>
         </ Link>
+        <Link to="/newpost" className="navbar-title">
+          <Icon.PlusSquare />
+        </Link>
       </div>
       <a className="menu-toggle rounded" href="#">
         <i className="fa fa-bars"></i>

@@ -56,7 +56,7 @@ function LandingPage() {
                     <div className="service-content">
                       <h3>Post</h3>
                       <p>After you logged in, make a new post with your favorite image.</p>
-                      <a className="btn btn-primary btn-sm" style={{ marginTop: '30%'}} href="/">Post</a>
+                      <a className="btn btn-primary btn-sm" style={{ marginTop: '30%'}} href="/newPost">Post</a>
                     </div>
                   </div>
                 </div>

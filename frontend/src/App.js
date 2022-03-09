@@ -12,6 +12,7 @@ import Register from "./components/Register";
 import Contact from "./components/Contact";
 
 import LandingPage from "./components/LandingPage";
+import NewPost from "./components/NewPost";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/Login" component={Login} />
         <Route path="/Register" component={Register} />
         <Route path="/Contact" component={Contact} />
+        <Route path="/NewPost" component={NewPost} />
         {/* <Footer /> */}
       </div>
     </Router>

@@ -29,7 +29,7 @@
 
 /* Zoekbalk */
 .search-click {
-  border: 1px solid #ccc;
+  border: 2px solid white;
   outline: none;
   background-size: 22px;
   background-position: 13px;
@@ -39,9 +39,10 @@
   padding: 15px;
   transition: all 0.5s;
   margin-top: 8px;
+  background-color: rgba(52, 58, 64, 0.5);
 }
 .search-click:focus {
-  width: 300px;
+  width: 75%;
   /* padding-left: 50px; */
 }
 .search-click {
@@ -49,6 +50,7 @@
   overflow: hidden;
   height: 20px;
   margin-right: 5px;
+  color: white;
 }
 .search-click input {
   background: transparent;

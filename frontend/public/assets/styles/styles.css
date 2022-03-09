@@ -130,7 +130,7 @@ span {
   position: relative;
   height: 100vh;
   /* background: linear-gradient(274deg, #ca3b3b, #629ee2 44%, #c962f7); */
-  background-color: #fafafa;
+  background-color: #fafafa;;
   color: black;
 }
 #Banner .content-wrap {
@@ -151,12 +151,12 @@ span {
   padding: 0;
 }
 #Banner .btn-primary {
-  background-color: #02ccba;
+  background-color: #007bff;
   color: #fff;
   border: none;
 }
 #Banner .btn-primary:hover {
-	background-color: #07bcab;
+	background-color: #0058b8;
 }
 #Services {
   background-color: #fafafa;
@@ -233,7 +233,7 @@ span {
   background-color: #02b3e4;
 }
 #Services .service-box .orange {
-  background-color: #02ccba;
+  background-color: #007bff;
 }
 #Services .service-box .red {
   background-color: #02BED2;
@@ -256,155 +256,6 @@ span {
   -ms-transform: rotateX(0);
   -o-transform: rotateX(0);
   transform: rotateX(0);
-}
-#Portfolio {
-  padding: 80px 0;
-}
-#Portfolio .each-portfolio {
-  position: relative;
-  width: calc(33.3% - 10px);
-  float: left;
-  margin: 0 0 35px;
-  text-decoration: none;
-  outline: 0 none;
-}
-#Portfolio .each-portfolio img {
-  width: 100%;
-  height: auto;
-}
-#Portfolio .each-portfolio span.zoom {
-  margin-top: 30px;
-}
-#Portfolio .each-portfolio .fa-search-plus {
-  font-size: 26px;
-  color: #fff;
-}
-#Portfolio .each-portfolio .p-title {
-  font-size: 22px;
-  color: #fff;
-  transition: top 0.3s ease-in-out;
-}
-#Portfolio .each-portfolio .p-desc {
-  color: #fff;
-  transition: top 0.3s ease-in-out;
-  margin: 0 0 20px;
-}
-#Portfolio .content {
-  position: relative;
-  width: 90%;
-  max-width: 400px;
-  margin: auto;
-  overflow: hidden;
-}
-#Portfolio .content .content-overlay {
-  background: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  height: 99%;
-  width: 100%;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  opacity: 0;
-  -webkit-transition: all 0.4s ease-in-out 0s;
-  -moz-transition: all 0.4s ease-in-out 0s;
-  transition: all 0.4s ease-in-out 0s;
-}
-#Portfolio .content:hover .content-overlay {
-  opacity: 1;
-}
-#Portfolio .content-image {
-  width: 100%;
-}
-#Portfolio .content-details {
-  position: absolute;
-  text-align: center;
-  padding-left: 1em;
-  padding-right: 1em;
-  width: 100%;
-  top: 50%;
-  left: 50%;
-  opacity: 0;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  -webkit-transition: all 0.3s ease-in-out 0s;
-  -moz-transition: all 0.3s ease-in-out 0s;
-  transition: all 0.3s ease-in-out 0s;
-}
-#Portfolio .content:hover .content-details {
-  top: 50%;
-  left: 50%;
-  opacity: 1;
-}
-#Portfolio .fadeIn-bottom {
-  top: 80%;
-}
-#customers-testimonials .shadow-effect {
-  background: #fff;
-  padding: 20px;
-  border-radius: 4px;
-  text-align: center;
-  border: 1px solid #ECECEC;
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.10), 0 15px 12px rgba(0, 0, 0, 0.02);
-}
-#Testimonials.content-section {
-  padding-bottom: 0;
-  background-color: #fafafa;
-}
-#customers-testimonials .shadow-effect p {
-  font-family: inherit;
-  font-size: 16px;
-  line-height: 1.5;
-  margin: 0 0 17px 0;
-  font-weight: 300;
-}
-#customers-testimonials .testimonial-name {
-  margin: -17px auto 0;
-  display: table;
-  width: auto;
-  background-color: #02ccba;
-  color: #fff;
-  padding: 9px 35px;
-  border-radius: 12px;
-  text-align: center;
-  color: #fff;
-}
-#customers-testimonials .item {
-  text-align: center;
-  padding: 50px;
-  margin-bottom: 80px;
-  opacity: .2;
-  -webkit-transform: scale3d(0.8, 0.8, 1);
-  transform: scale3d(0.8, 0.8, 1);
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-#customers-testimonials .owl-item.active.center .item {
-  opacity: 1;
-  -webkit-transform: scale3d(1.0, 1.0, 1);
-  transform: scale3d(1.0, 1.0, 1);
-}
-.owl-carousel .owl-item img {
-  transform-style: preserve-3d;
-  max-width: 90px;
-  margin: 0 auto 17px;
-}
-#customers-testimonials.owl-carousel.owl-theme .owl-dots .owl-dot.active span,
-#customers-testimonials.owl-carousel.owl-theme .owl-dots .owl-dot:hover span {
-  background: #28CB75;
-  transform: translate3d(0px, -50%, 0px) scale(0.7);
-}
-#customers-testimonials.owl-carousel.owl-theme .owl-dots .owl-dot span {
-  background: #C4C4CC;
-  display: block;
-  height: 20px;
-  margin: 0 2px 5px;
-  transform: translate3d(0px, -50%, 0px) scale(0.3);
-  transform-origin: 50% 50% 0;
-  transition: all 250ms ease-out 0s;
-  width: 20px;
 }
 
 #Contact .block-heading {
@@ -435,7 +286,7 @@ span {
   margin-right: 20px;
 }
 #Contact .contact-wrapper span i {
-  color: #02ccba;
+  color: #007bff;
 }
 #Contact .form-wrap {
   width: 100%;
@@ -478,7 +329,7 @@ span {
 #Contact .floating-input:focus~label, #Contact .floating-input.not-empty~label {
   top: -18px;
   font-size: 12px;
-  color: #02ccba;
+  color: #007bff;
   transition: top 0.2s ease-in-out;
 }
 #Contact .submit-btn {
@@ -487,14 +338,14 @@ span {
 #Contact .submit-btn button {
   font-size: 16px;
   color: #fff;
-  background-color: #02ccba;
+  background-color: #007bff;
   padding: 15px 30px;
   border: none;
   cursor: pointer;
   border-radius: 6px;
 }
 #Contact .submit-btn button:hover {
-	background-color: #07bcab;
+	background-color: #0058b8;
 }
 footer.footer {
   padding-top: 70px;
@@ -506,20 +357,20 @@ footer.footer .social-link {
   height: 50px;
   width: 50px;
   font-size: 20px;
-  background-color: #02ccba;
+  background-color: #007bff;
   color: #fff;
   border: none;
   padding: 10px;
 }
 footer.footer .social-link:hover {
-	background-color: #07bcab;
+	background-color: #0058b8;
 }
 footer.footer p.small a {
 	color: #636c72;
 	text-decoration: none;
 }
 footer.footer p.small a:hover, footer.footer p.small a.focus {
-	color: #02ccba;
+	color: #007bff;
 	text-decoration: none;
 }
 #Contact .address-block span {

@@ -2,6 +2,7 @@ import polargramlogo from "../images/PolarGramLogo.PNG";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import * as Icon from 'react-bootstrap-icons';
+import { NavHashLink } from 'react-router-hash-link';
 
 import { Nav,Container,Navbar } from 'react-bootstrap';
 
@@ -10,11 +11,11 @@ import { Nav,Container,Navbar } from 'react-bootstrap';
 function Navbarr() {
   return (
     <div>
-                <div className="logo">
-             <Link to="/" className="navbar-title">
-                 <img className="navbar-Logo" src={polargramlogo} alt="Logo" /><span className='navbar-title'>PolarGram</span>
-             </ Link>
-          </div>
+        <div className="logo">
+          <Link to="/" className="navbar-title">
+             <img className="navbar-Logo" src={polargramlogo} alt="Logo" /><span className='navbar-title'>PolarGram</span>
+          </ Link>
+        </div>
           <a className="menu-toggle rounded" href="#">
             <i className="fa fa-bars"></i>
           </a>
@@ -24,49 +25,26 @@ function Navbarr() {
         <a className="smooth-scroll" href="#Header"></a>
       </li>
       <li className="sidebar-nav-item">
-        <a className="smooth-scroll" href="#Banner">Home</a>
+      <NavHashLink to="/#Banner" >Home</NavHashLink>
       </li>
       <li className="sidebar-nav-item">
-        <a className="smooth-scroll" href="#Services">Services</a>
+      <NavHashLink to="/#Services" >How does it work?</NavHashLink>
       </li>
       <li className="sidebar-nav-item">
-        <a className="smooth-scroll" href="#Contact">Contact</a>
+      <Link to='/Contact'className="nav-link"> Contact </Link>
       </li>
       <li className="sidebar-nav-item">
       <Link to='/Login'className="nav-link"> Login </Link>
       </li>
+      <div className="input-group">
+      <div className="input-group-btn">
+              <button className="btn nav-link" style={{ color: 'white'}} ><Icon.Search /></button>
+          </div>
+        <input type="text" className="search-click" name="" placeholder="Search.." /> 
+      </div>
     </ul>
   </nav>
   </div>
-    // <div>
-    //   <Navbar collapseOnSelect expand="lg">
-    //     <Container>
-    //       <Link to="/" className="navbar-title">
-    //         <img className="navbar-Logo" src={polargramlogo} alt="Logo" />
-    //         PolarGram
-    //       </Link>
-    //     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-    //     <Navbar.Collapse id="responsive-navbar-nav">
-    //       <Nav className="ml-auto">
-    //         <Nav.Link > 
-    //           <div className="input-group">
-    //             <input type="text" className="search-click" name="" placeholder="Search.." /> 
-    //             <div className="input-group-btn">
-    //               <button className="btn btn-default nav-link" type="submit" ><Icon.Search /></button>
-    //             </div>
-    //           </div>
-    //         </Nav.Link>
-    //         {/* <Nav.Link > <Link to='/Search' className="nav-link"><Icon.Search /> </Link> </Nav.Link> */}
-    //         <Nav.Link > <Link to='/NewPost'className="nav-link"><Icon.PlusSquare /> </Link></Nav.Link>
-    //         <Nav.Link > <Link to='/Login'className="nav-link">Login </Link></Nav.Link>
-    //       </Nav>
-        
-    //     </Navbar.Collapse>
-    //     </Container>
-    //   </Navbar>
-
-
-    // </div>
   );
 }
 

@@ -37,11 +37,11 @@ function Discovery() {
                   posts.map((post, index) => (
                     
                 <div className="col-md-3 col-sm-6">
-                    <Card style={{ width: '15rem' }}>
+                    <Card style={{ width: '100%', marginBottom: '10px', height:'370px' }}>
                     <Card.Img variant="top" src={"http://localhost:5000/imageapi/images/" + post.imgSrc} style={{ paddingTop: '2rem', paddingLeft: '1.5rem', paddingRight: '1.5rem', height: '260px' }}  />
                     <Card.Body>
-                      <Card.Title>{post.name}</Card.Title>
-                      <Card.Text>
+                      <Card.Title style={{ textAlign: 'left'}}>{post.name}</Card.Title>
+                      <Card.Text style={{ textAlign: 'left'}}>
                         {post.date}
                       </Card.Text>
                     </Card.Body>

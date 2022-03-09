@@ -4,7 +4,8 @@ import { faEnvelope, faLock} from '@fortawesome/free-solid-svg-icons';
 
 function Login() {
   return (
-  <div id="login">
+      
+    <section className="content-section">
         <div className="container">
             <div id="login-row" className="row justify-content-center align-items-center">
                 <div id="login-column" className="col-md-6">
@@ -34,7 +35,7 @@ function Login() {
                 </div>
             </div>
         </div>
-    </div>
+    </section>
   );
 }
 

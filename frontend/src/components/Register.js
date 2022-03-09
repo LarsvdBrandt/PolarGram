@@ -4,7 +4,7 @@ import { faEnvelope, faLock, faUsers, faUser} from '@fortawesome/free-solid-svg-
 
 function Register() {
   return (
-  <div id="login">
+	<section className="content-section">
         <div className="container">
             <div id="login-row" className="row justify-content-center align-items-center">
                 <div id="login-column" className="col-md-6">
@@ -55,7 +55,7 @@ function Register() {
                 </div>
             </div>
         </div>
-    </div>
+    </section>
   );
 }
 

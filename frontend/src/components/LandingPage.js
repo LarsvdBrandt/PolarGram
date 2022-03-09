@@ -13,9 +13,10 @@ function LandingPage() {
             <div className="container content-wrap text-center">
               <h1>The new and the old combined</h1>
               <h3>
-                  Post and share with your friends!
+                  Check the newest posts on the discovery page!
                 </h3>
-              <a className="btn btn-primary btn-xl smooth-scroll" href="#Services">How does it work?</a>
+                
+              <Link to='/discovery'className="btn btn-primary btn-xl"> Discovery page </Link>
             </div>
             <div className="overlay"></div>
           </section>
@@ -76,7 +77,7 @@ function LandingPage() {
                 </div>
                 <div className="col-md-3 col-sm-6">
                   <div className="service-box">
-                    <div className="service-icon grey">
+                    <div className="service-icon yellow">
                       <div className="front-content">
                         <i className="fa fa-comment"></i>
                         <h3>Comment</h3>

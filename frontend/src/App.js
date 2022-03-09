@@ -11,14 +11,16 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Polaroid from "./components/Polaroid";
 
+import Testlandingpage from "./components/Testlandingpage";
+
 
 function App() {
   return (
     <Router>
-      <div className="container">
-        <Navbar />
-        <hr />
-        <Route exact path="/" component={HomePage} />
+      <div className="container-fluid">
+        {/* <Navbar />
+        <hr /> */}
+        <Route exact path="/" component={Testlandingpage} />
         <Route path="/Login" component={Login} />
         <Route path="/Register" component={Register} />
         {/* <Footer /> */}

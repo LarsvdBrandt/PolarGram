@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using ServicePost.Models;
 using ServicePost.Data;
+using Microsoft.OpenApi.Models;
 
 namespace ServicePost
 {
@@ -28,10 +29,23 @@ namespace ServicePost
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //weghalen
+            services.AddDbContext<PGPostContext>(opt => opt.UseInMemoryDatabase("PGPost"));
+
+            services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PostAPI", Version = "v1" });
+            });
+            //tot hier
+
+            /* terugcommenten
+             * 
             services.AddDbContext<PGPostContext>(options =>
-   options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
             services.AddCors();
+            */
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

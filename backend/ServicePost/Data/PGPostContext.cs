@@ -16,12 +16,13 @@ namespace ServicePost.Data
 
         public DbSet<PGPost> PGPosts { get; set; }
 
+        /* terug commenten bij terugzetten
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             
             modelBuilder.Entity<PGPost>().ToTable("PGPost");
         }
-
+        */
     }
 }

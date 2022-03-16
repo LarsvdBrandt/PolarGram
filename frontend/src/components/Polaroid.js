@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {Card} from "react-bootstrap";
-import fontyslogo from "../images/steen.PNG";
+import fontyslogo from "../images/fontyslogo.PNG";
 
 
 function HomePage() {

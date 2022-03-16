@@ -20,7 +20,6 @@ D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\K4os.Compression.
 D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\K4os.Hash.xxHash.dll
 D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
 D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
-D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
 D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
 D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
@@ -38,9 +37,6 @@ D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\Microsoft.EntityF
 D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
 D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
 D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
-D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
-D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
-D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
 D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
 D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
@@ -164,3 +160,9 @@ D:\repos\PolarGram\backend\ServicePost\obj\Debug\netcoreapp3.1\ServicePost.cspro
 D:\repos\PolarGram\backend\ServicePost\obj\Debug\netcoreapp3.1\ServicePost.dll
 D:\repos\PolarGram\backend\ServicePost\obj\Debug\netcoreapp3.1\ServicePost.pdb
 D:\repos\PolarGram\backend\ServicePost\obj\Debug\netcoreapp3.1\ServicePost.genruntimeconfig.cache
+D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\repos\PolarGram\backend\ServicePost\obj\Debug\netcoreapp3.1\ServicePost.MvcApplicationPartsAssemblyInfo.cs
+D:\repos\PolarGram\backend\ServicePost\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll

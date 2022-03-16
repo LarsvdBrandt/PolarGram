@@ -4,7 +4,6 @@ import PostService from "../services/PostService";
 import {Container, Row, Col, Card} from "react-bootstrap";
 import Polaroid from "./Polaroid";
 import * as Icon from 'react-bootstrap-icons';
-import fontyslogo from "../images/steen.PNG";
 
 
 function Discovery() {

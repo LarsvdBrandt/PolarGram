@@ -3,7 +3,7 @@ import PostService from "../services/PostService";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
-const NewPost = () => {
+const PolaroidPost = (props) => {
   const history = useHistory();
   const [post, setPost] = useState({ name: "", imgSrc: "", date: "" });
   const [message, setMessage] = useState("");
@@ -44,75 +44,76 @@ const NewPost = () => {
       .post("http://localhost:5000/ImageApi/File", formData)
       .then((res) => {
         console.log("succes");
+        props.history.push("/Discovery");
 
-        // history.push("/");
       })
       .catch((err) => console.log(err));
+
   };
 
   return (
-      
+
     <section className="content-section">
-    <div className="container">
-      <h2 className="text-center">Make a new post!</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label for="Name">Name</label>
-          <input
-            className="form-control"
-            placeholder="Name"
-            type="text"
-            name="name"
-            onChange={handleChange}
-            data-testid="post-input-name"
-            required
-          />
-        </div>
-        <p>Image: {post.imgSrc}</p>
-        <div class="custom-file mb-3">
-          <input
-            type="file"
-            class="custom-file-input"
-            name="imgSrc"
-            onChange={handleUpload}
-            data-testid="post-input-image"
-            required
-          />
-          <label class="custom-file-label" for="customFile">
-            Choose file
-          </label>
-        </div>
-        {/* <div>
+      <div className="container">
+        <h2 className="text-center">Make a new post!</h2>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label for="Name">Name</label>
+            <input
+              className="form-control"
+              placeholder="Name"
+              type="text"
+              name="name"
+              onChange={handleChange}
+              data-testid="post-input-name"
+              required
+            />
+          </div>
+          <p>Image: {post.imgSrc}</p>
+          <div class="custom-file mb-3">
+            <input
+              type="file"
+              class="custom-file-input"
+              name="imgSrc"
+              onChange={handleUpload}
+              data-testid="post-input-image"
+              required
+            />
+            <label class="custom-file-label" for="customFile">
+              Choose file
+            </label>
+          </div>
+          {/* <div>
         <label for="title">Foto</label>
         <input className="form-control-file" type="file" name="imgSrc" onChange={saveFile} required />
         </div> */}
-        <div>
-          <label for="title">Date</label>
-          <input
-            className="form-control"
-            placeholder="Date"
-            type="text"
-            name="date"
-            onChange={handleChange}
-            data-testid="post-input-date"
-            required
-          />
-        </div>
-        <br></br>
-        <button
-          className="btn btn-primary"
-          type="submit"
-          data-testid="post-input-submit"
-        >
-          Submit
-        </button>
-      </form>
+          <div>
+            <label for="title">Date</label>
+            <input
+              className="form-control"
+              placeholder="Date"
+              type="text"
+              name="date"
+              onChange={handleChange}
+              data-testid="post-input-date"
+              required
+            />
+          </div>
+          <br></br>
+          <button
+            className="btn btn-primary"
+            type="submit"
+            data-testid="post-input-submit"
+          >
+            Submit
+          </button>
+        </form>
 
-      <div className="alert alert-light" role="alert">
-        {message}
+        <div className="alert alert-light" role="alert">
+          {message}
+        </div>
       </div>
-    </div>
     </section>
   );
 };
-export default NewPost;
+export default PolaroidPost;

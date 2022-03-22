@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import * as Icon from 'react-bootstrap-icons';
 import { NavHashLink } from 'react-router-hash-link';
 
-import { Nav,Container,Navbar } from 'react-bootstrap';
+import { Nav, Container, Navbar } from 'react-bootstrap';
 
 
 
@@ -15,7 +15,7 @@ function Navbarr() {
         <Link to="/" className="navbar-title">
           <img className="navbar-Logo" src={polargramlogo} alt="Logo" /><span className='navbar-title'>PolarGram</span>
         </ Link>
-        <Link to="/newpost" className="navbar-title">
+        <Link to="/PolaroidPost" className="navbar-title">
           <Icon.PlusSquare />
         </Link>
       </div>
@@ -31,30 +31,30 @@ function Navbarr() {
             <NavHashLink to="/#Banner" >Home</NavHashLink>
           </li>
           <li className="sidebar-nav-item">
-            <Link to='/Discovery'className="nav-link"> Discovery page </Link>
+            <Link to='/Discovery' className="nav-link"> Discovery page </Link>
           </li>
           <li className="sidebar-nav-item">
             <NavHashLink to="/#Services" >How does it work?</NavHashLink>
           </li>
           <li className="sidebar-nav-item">
-            <Link to='/Contact'className="nav-link"> Contact </Link>
+            <Link to='/Contact' className="nav-link"> Contact </Link>
           </li>
           <div className="input-group">
             <div className="input-group-btn">
-              <button className="btn nav-link" style={{ color: 'white'}} ><Icon.Search /></button>
+              <button className="btn nav-link" style={{ color: 'white' }} ><Icon.Search /></button>
             </div>
-            <input type="text" className="search-click" name="" placeholder="Search.." /> 
+            <input type="text" className="search-click" name="" placeholder="Search.." />
           </div>
         </ul>
         <div class="sidebar-footer">
-        <ul className="sidebar-nav">
+          <ul className="sidebar-nav">
             <li className="sidebar-nav-item" >
-              <Link to='/Login'className="nav-link"> Login </Link>
+              <Link to='/Login' className="nav-link"> Login </Link>
             </li>
-        </ul>
-          </div>
-    </nav>
-  </div>
+          </ul>
+        </div>
+      </nav>
+    </div>
   );
 }
 

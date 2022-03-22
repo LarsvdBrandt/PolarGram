@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react"
 
 //components
 import Navbar from "./components/Navbar";
@@ -17,6 +18,10 @@ import PolaroidPost from "./components/PolaroidPost";
 
 
 function App() {
+  const { isLoading } = useAuth0();
+
+  // if (isLoading) return <div>Loading...</div>
+
   return (
     <Router>
       <div className="container-fluid">

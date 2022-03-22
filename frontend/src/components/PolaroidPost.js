@@ -2,10 +2,18 @@ import React, { useRef, useState } from "react";
 import PostService from "../services/PostService";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react"
 
 const PolaroidPost = (props) => {
+  const { isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
+  const { loginWithRedirect } = useAuth0();
+
+  const current = new Date();
+  const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
+
   const history = useHistory();
-  const [post, setPost] = useState({ name: "", imgSrc: "", date: "" });
+  const [post, setPost] = useState({ name: user.nickname, imgSrc: "", date: date });
   const [message, setMessage] = useState("");
 
   const [file, setFile] = useState(""); // storing the uploaded file
@@ -19,6 +27,7 @@ const PolaroidPost = (props) => {
   };
 
   const handleUpload = (e) => {
+    console.log(post)
     const file = e.target.files[0]; // accessing file
     console.log(file);
     setFile(file); // storing file
@@ -52,65 +61,60 @@ const PolaroidPost = (props) => {
   };
 
   return (
-
     <section className="content-section">
       <div className="container">
-        <h2 className="text-center">Make a new post!</h2>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label for="Name">Name</label>
-            <input
-              className="form-control"
-              placeholder="Name"
-              type="text"
-              name="name"
-              onChange={handleChange}
-              data-testid="post-input-name"
-              required
-            />
-          </div>
-          <p>Image: {post.imgSrc}</p>
-          <div class="custom-file mb-3">
-            <input
-              type="file"
-              class="custom-file-input"
-              name="imgSrc"
-              onChange={handleUpload}
-              data-testid="post-input-image"
-              required
-            />
-            <label class="custom-file-label" for="customFile">
-              Choose file
-            </label>
-          </div>
-          {/* <div>
-        <label for="title">Foto</label>
-        <input className="form-control-file" type="file" name="imgSrc" onChange={saveFile} required />
-        </div> */}
-          <div>
-            <label for="title">Date</label>
-            <input
-              className="form-control"
-              placeholder="Date"
-              type="text"
-              name="date"
-              onChange={handleChange}
-              data-testid="post-input-date"
-              required
-            />
-          </div>
-          <br></br>
-          <button
-            className="btn btn-primary"
-            type="submit"
-            data-testid="post-input-submit"
-          >
-            Submit
-          </button>
-        </form>
+        <div>
+          <h2 className="text-center">Make a new post!</h2>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label for="Name">Name</label>
+              <input
+                className="form-control"
+                type="text"
+                name="name"
+                value={user.nickname}
+                data-testid="post-input-name"
+                disabled
+              />
+            </div>
+            <p>Image: {post.imgSrc}</p>
+            <div class="custom-file mb-3">
+              <input
+                type="file"
+                class="custom-file-input"
+                name="imgSrc"
+                onChange={handleUpload}
+                data-testid="post-input-image"
+                required
+              />
+              <label class="custom-file-label" for="customFile">
+                Choose file
+              </label>
+            </div>
+            <div>
+              <label for="title">Date</label>
+              <input
+                className="form-control"
+                type="text"
+                name="date"
+                data-testid="post-input-date"
+                placeholder={date}
+                disabled
+              />
+            </div>
+            <br></br>
+            <button
+              className="btn btn-primary"
+              type="submit"
+              data-testid="post-input-submit"
+            >
+              Submit
+            </button>
+          </form>
 
-        <div className="alert alert-light" role="alert">
-          {message}
+          <div className="alert alert-light" role="alert">
+            {message}
+          </div>
         </div>
       </div>
     </section>

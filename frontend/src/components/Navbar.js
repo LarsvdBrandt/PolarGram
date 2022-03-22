@@ -5,19 +5,29 @@ import * as Icon from 'react-bootstrap-icons';
 import { NavHashLink } from 'react-router-hash-link';
 
 import { Nav, Container, Navbar } from 'react-bootstrap';
+import { auth0, useAuth0 } from '@auth0/auth0-react'
 
 
 
-function Navbarr() {
+const Navbarr = () => {
+  const { loginWithRedirect } = useAuth0();
+  const { logout } = useAuth0();
+  const { user } = useAuth0();
+  const { isAuthenticated } = useAuth0();
+
+  console.log(JSON.stringify(user, null, 2))
   return (
     <div>
       <div className="logo">
         <Link to="/" className="navbar-title">
           <img className="navbar-Logo" src={polargramlogo} alt="Logo" /><span className='navbar-title'>PolarGram</span>
         </ Link>
-        <Link to="/PolaroidPost" className="navbar-title">
-          <Icon.PlusSquare />
-        </Link>
+
+        {isAuthenticated && (
+          <Link to="/PolaroidPost" className="navbar-title">
+            <Icon.PlusSquare />
+          </Link>
+        )}
       </div>
       <a className="menu-toggle rounded" href="#">
         <i className="fa fa-bars"></i>
@@ -25,7 +35,7 @@ function Navbarr() {
       <nav id="sidebar-wrapper">
         <ul className="sidebar-nav">
           <li className="sidebar-brand">
-            <a className="smooth-scroll" href="#Header"></a>
+            {/* <p className="smooth-scroll text-white">{user.nickname}</p> */}
           </li>
           <li className="sidebar-nav-item">
             <NavHashLink to="/#Banner" >Home</NavHashLink>
@@ -49,7 +59,15 @@ function Navbarr() {
         <div class="sidebar-footer">
           <ul className="sidebar-nav">
             <li className="sidebar-nav-item" >
-              <Link to='/Login' className="nav-link"> Login </Link>
+              {!isAuthenticated && (
+                <a onClick={() => loginWithRedirect()} className="nav-link"> Login </a>
+              )}
+              {isAuthenticated && (
+                <div>
+                  <a onClick={() => logout()} className="nav-link"> Logout </a>
+                </div>
+              )}
+
             </li>
           </ul>
         </div>

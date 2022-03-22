@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JLXA+wh+rYm0BVGrt9foAJTaNdSNRHINzOxTds5d88O2HDFe+oT1KSGQfvhQrwloaBL1vkG6Lmu13qrTAyqvJg==",
+  "dgSpecHash": "MERSi9Qc0INzKYTeM/ZeH/Oo202c8GNg7R9qYL9kO0h98KHizEiToT4plY/05hYgYTHvL7fblJj6A58R5Zjnhw==",
   "success": true,
   "projectFilePath": "D:\\repos\\PolarGram\\backend\\ServicePost\\ServicePost.csproj",
   "expectedPackageFiles": [
@@ -205,7 +205,8 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
     "C:\\Users\\larsv\\.nuget\\packages\\system.xml.xpath\\4.0.1\\system.xml.xpath.4.0.1.nupkg.sha512",
-    "C:\\Users\\larsv\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.0.1\\system.xml.xpath.xmldocument.4.0.1.nupkg.sha512"
+    "C:\\Users\\larsv\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.0.1\\system.xml.xpath.xmldocument.4.0.1.nupkg.sha512",
+    "C:\\Users\\larsv\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.23\\microsoft.netcore.app.host.win-x64.3.1.23.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "X4a+HQS9mkCoMeQHHHJmJtIhMxSlM4DsXHlzLN3molIx1I3T+y9/xlihsNDh+2o5+afOGQQelMO18rQ4pzWQdQ==",
+  "dgSpecHash": "gZNprA6uVWgGEN0iH5F1IJjyP5eHtusnxEyqU8kZaaFYRWu8ZshHYQIEj+IaBIj6jNyoCZiNYIt5+Oz2iVzS8Q==",
   "success": true,
   "projectFilePath": "D:\\repos\\PolarGram\\backend\\APIGateway\\APIGateway.csproj",
   "expectedPackageFiles": [
@@ -15,7 +15,8 @@
     "C:\\Users\\larsv\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\larsv\\.nuget\\packages\\ocelot\\16.0.1\\ocelot.16.0.1.nupkg.sha512",
     "C:\\Users\\larsv\\.nuget\\packages\\system.componentmodel.annotations\\4.4.1\\system.componentmodel.annotations.4.4.1.nupkg.sha512",
-    "C:\\Users\\larsv\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.0\\system.diagnostics.diagnosticsource.4.7.0.nupkg.sha512"
+    "C:\\Users\\larsv\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.0\\system.diagnostics.diagnosticsource.4.7.0.nupkg.sha512",
+    "C:\\Users\\larsv\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.23\\microsoft.netcore.app.host.win-x64.3.1.23.nupkg.sha512"
   ],
   "logs": []
 }

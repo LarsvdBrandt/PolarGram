@@ -42,12 +42,6 @@ namespace ServicePost.Data
                     Name="Vincent Stolwijk",
                     Date="25-02-2022",
                     ImgSrc="img4.PNG",
-                },
-                new PGPost
-                {
-                    Name="Koen Verheij",
-                    Date="25-02-2022",
-                    ImgSrc="img4.PNG",
                 }
             };
             foreach (PGPost pgPost in pgPosts)

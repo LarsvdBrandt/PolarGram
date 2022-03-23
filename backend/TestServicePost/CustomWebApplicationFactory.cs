@@ -29,7 +29,7 @@ namespace TestServicePost
 
                 services.AddDbContext<PGPostContext>(options =>
                 {
-                    options.UseInMemoryDatabase("InMemoryDbForTesting");
+                    options.UseInMemoryDatabase("PGPostServiceTest");
                 });
 
 

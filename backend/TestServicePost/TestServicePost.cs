@@ -27,7 +27,7 @@ namespace TestServicePost
         //get
 
         [Fact]
-        public async Task Get_Request_Should_Return_Ok_All()
+        public async Task Get_All_OK()
         {
             var response = await _client.GetAsync("/PGPosts");
 
@@ -35,7 +35,7 @@ namespace TestServicePost
         }
 
         [Fact]
-        public async Task Get_Request_Should_Return_Ok_One()
+        public async Task Get_One_OK()
         {
             var response = await _client.GetAsync("/PGPosts/1");
 
@@ -43,7 +43,7 @@ namespace TestServicePost
         }
 
         [Fact]
-        public async Task Get_Request_By_Wrong_ID()
+        public async Task Get_One_Not_OK()
         {
             var response = await _client.GetAsync("/PGPosts/20");
 
@@ -53,7 +53,7 @@ namespace TestServicePost
         //delete
 
         [Fact]
-        public async Task Delete_Request_By_ID()
+        public async Task Delete_One_OK()
         {
             var response = await _client.DeleteAsync("/PGPosts/2");
 
@@ -61,7 +61,7 @@ namespace TestServicePost
         }
 
         [Fact]
-        public async Task Delete_Request_By_Wrong_ID()
+        public async Task Delete_One_Not_OK()
         {
             var response = await _client.DeleteAsync("/PGPosts/7");
 
@@ -71,7 +71,7 @@ namespace TestServicePost
         //post
 
         [Fact]
-        public async Task Post_Succeed()
+        public async Task Post_OK()
         {
 
             var response = await _client.PostAsync("/PGPosts", new StringContent(JsonConvert.SerializeObject(new PGPost()
@@ -88,10 +88,27 @@ namespace TestServicePost
 
         }
 
-        //Edit
+        /* [Fact]
+        public async Task Post_Not_OK()
+        {
 
+            var response = await _client.PostAsync("/PGPosts", new StringContent(JsonConvert.SerializeObject(new PGPost()
+            {
+                id = 5,
+                Name = "Name5",
+                Date = "Date1",
+
+            }), Encoding.UTF8, "application/json"));
+
+
+            response.StatusCode.Should().Be(HttpStatusCode.NoContent);
+
+        }
+        */
+
+        //Edit
         [Fact]
-        public async Task Edit_Succeed()
+        public async Task Edit_One_OK()
         {
 
             var response = await _client.PutAsync("/PGPosts/1", new StringContent(JsonConvert.SerializeObject(new PGPost()
@@ -109,7 +126,7 @@ namespace TestServicePost
         }
 
         [Fact]
-        public async Task Edit_Fail_Wrong_ID()
+        public async Task Edit_One_Not_OK()
         {
 
             var response = await _client.PutAsync("/PGPosts/9", new StringContent(JsonConvert.SerializeObject(new PGPost()

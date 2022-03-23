@@ -5,12 +5,12 @@ on:
     branches: 
       - master
     paths:
-      - SocialformAPI/**
+      - backend/**
   pull_request:
     branches: 
       - master
     paths:
-      - SocialformAPI/**
+      - backend/**
 
 jobs:
   build:
@@ -25,23 +25,19 @@ jobs:
         dotnet-version: 3.1.301
     - name: Install dependencies
       run: |
-        cd SocialformAPI
+        cd backend
         dotnet restore APIGateway
-        dotnet restore CommentService
         dotnet restore ImageApi
-        dotnet restore LikeService
-        dotnet restore PostService
+        dotnet restore ServicePost
         
     - name: Build
       run: |
-        cd SocialformAPI
+        cd backend
         dotnet build --configuration Release --no-restore APIGateway
-        dotnet build --configuration Release --no-restore CommentService
         dotnet build --configuration Release --no-restore ImageApi
-        dotnet build --configuration Release --no-restore LikeService
-        dotnet build --configuration Release --no-restore PostService
+        dotnet build --configuration Release --no-restore ServicePost
       
     - name: Test
       run: |
-        cd SocialformAPI
-        dotnet test PostServiceTests
+        cd backend
+        dotnet test TestServicePost

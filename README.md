@@ -3,7 +3,7 @@ Combine the new and the old!
 
 # CI/CD
 ![Back-end services](https://github.com/LarsvdBrandt/PolarGram/workflows/Back-end%20CI/badge.svg)
-![Front-end](https://github.com/LarsvdBrandt/PolarGram/workflows/Front-end%20CI/badge.svg)
+![Front-end](https://github.com/LarsvdBrandt/PolarGram/workflows/Front-end%20CI/badge.svg)  
 Docker: https://hub.docker.com/u/434565
  
 # Installation

@@ -5,12 +5,12 @@ on:
     branches: 
       - master
     paths:
-      - backend/**
+      - PolarGram/**
   pull_request:
     branches: 
       - master
     paths:
-      - backend/**
+      - PolarGram/**
 
 jobs:
   build:

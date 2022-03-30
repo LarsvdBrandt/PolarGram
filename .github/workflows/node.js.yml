@@ -7,13 +7,9 @@ on:
   push:
     branches: 
       - master
-    paths:
-      - PolarGram/**
   pull_request:
     branches: 
       - master
-    paths:
-      - PolarGram/**
 
 jobs:
   build:

@@ -6,7 +6,6 @@ function Login() {
     return (
 
         <section className="content-section">
-            {/* test */}
             <div className="container">
                 <div id="login-row" className="row justify-content-center align-items-center">
                     <div id="login-column" className="col-md-6">

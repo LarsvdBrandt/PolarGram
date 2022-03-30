@@ -20,13 +20,11 @@ const remove = (id) => {
   return http.delete(BaseUri + "/" + id);
 };
 
-const getAllByName = (id) => http.get(BaseUri + "/ByName/" + id);
 
 export default {
   getAll,
   get,
   create,
   update,
-  remove,
-  getAllByName,
+  remove
 };

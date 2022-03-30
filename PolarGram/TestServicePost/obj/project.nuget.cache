@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8uA3uRFPxpWdy4JRREMz4jAYNz7EURyfSLELVQo5Ij3LIF/61O+B4kihrwyBQVvvqZZfkB04xwMVhG9htBUhrw==",
+  "dgSpecHash": "4vVE/+5wH4A/grmu7A7ga5gzqTHCVVKMz/GbYVky5D1PO1hazSPq/sbmHeF0NU+mCWuZXxsl2dOmIbgPoVVUMw==",
   "success": true,
   "projectFilePath": "D:\\repos\\PolarGram\\PolarGram\\TestServicePost\\TestServicePost.csproj",
   "expectedPackageFiles": [
@@ -85,6 +85,7 @@
     "C:\\Users\\larsv\\.nuget\\packages\\microsoft.openapi\\1.1.4\\microsoft.openapi.1.1.4.nupkg.sha512",
     "C:\\Users\\larsv\\.nuget\\packages\\microsoft.testplatform.objectmodel\\16.9.4\\microsoft.testplatform.objectmodel.16.9.4.nupkg.sha512",
     "C:\\Users\\larsv\\.nuget\\packages\\microsoft.testplatform.testhost\\16.9.4\\microsoft.testplatform.testhost.16.9.4.nupkg.sha512",
+    "C:\\Users\\larsv\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.11.1\\microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512",
     "C:\\Users\\larsv\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\3.1.4\\microsoft.visualstudio.web.codegeneration.3.1.4.nupkg.sha512",
     "C:\\Users\\larsv\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.contracts\\3.1.4\\microsoft.visualstudio.web.codegeneration.contracts.3.1.4.nupkg.sha512",
     "C:\\Users\\larsv\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\3.1.4\\microsoft.visualstudio.web.codegeneration.core.3.1.4.nupkg.sha512",

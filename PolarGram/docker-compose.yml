@@ -1,0 +1,34 @@
+version: '3.4'
+
+services:
+  apigateway:
+    image: ${DOCKER_REGISTRY-}apigateway
+    build:
+      context: .
+      dockerfile: APIGateway/Dockerfile
+
+  imageapi:
+    image: ${DOCKER_REGISTRY-}imageapi
+    build:
+      context: .
+      dockerfile: ImageApi/Dockerfile
+
+  servicepost:
+    image: ${DOCKER_REGISTRY-}servicepost
+    build:
+      context: .
+      dockerfile: ServicePost/Dockerfile
+
+  frontend:
+    image: frontend
+    container_name: frontend
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    stdin_open: true
+    ports:
+      - 3001:3000
+    volumes:
+      - './frontend:/app'
+    environment:
+      - CHOKIDAR_USEPOLLING=true

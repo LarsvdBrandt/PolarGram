@@ -1,0 +1,15 @@
+services:
+  apigateway:
+    build:
+      context: D:\repos\PolarGram\PolarGram
+      dockerfile: APIGateway/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: apigateway
+    ports:
+    - target: 80
+    - target: 443
+    volumes:
+    - C:\Users\larsv\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+version: '3.4'

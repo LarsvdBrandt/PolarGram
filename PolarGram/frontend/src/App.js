@@ -15,6 +15,7 @@ import PolaroidPage from "./components/PolaroidPage"
 import PolaroidEdit from "./components/PolaroidEdit"
 import LandingPage from "./components/LandingPage";
 import PolaroidPost from "./components/PolaroidPost";
+import ProfilePage from "./components/Profilepage"
 
 
 function App() {
@@ -31,10 +32,11 @@ function App() {
         <Route exact path="/Discovery" component={Discovery} />
         <Route path="/Polaroidpage/:photoid" component={PolaroidPage} />
         <Route path="/PolaroidEdit/:photoid" component={PolaroidEdit} />
-        <Route path="/Login" component={Login} />
-        <Route path="/Register" component={Register} />
+        {/* <Route path="/Login" component={Login} /> */}
+        {/* <Route path="/Register" component={Register} /> */}
         <Route path="/Contact" component={Contact} />
         <Route path="/PolaroidPost" component={PolaroidPost} />
+        <Route path="/ProfilePage" component={ProfilePage} />
         {/* <Footer /> */}
       </div>
     </Router>

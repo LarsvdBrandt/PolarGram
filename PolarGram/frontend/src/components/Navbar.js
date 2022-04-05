@@ -7,11 +7,8 @@ import { NavHashLink } from 'react-router-hash-link';
 import { Nav, Container, Navbar } from 'react-bootstrap';
 import { auth0, useAuth0 } from '@auth0/auth0-react'
 
-
-
 const Navbarr = () => {
   const { loginWithRedirect } = useAuth0();
-  const { logout } = useAuth0();
   const { user } = useAuth0();
   const { isAuthenticated } = useAuth0();
 
@@ -64,7 +61,8 @@ const Navbarr = () => {
               )}
               {isAuthenticated && (
                 <div>
-                  <a onClick={() => logout()} className="nav-link"> Logout </a>
+                  <Link to='/ProfilePage' className="nav-link"> {user.nickname} </Link>
+                  {/* <a onClick={() => logout()} className="nav-link"> Logout </a> */}
                 </div>
               )}
 

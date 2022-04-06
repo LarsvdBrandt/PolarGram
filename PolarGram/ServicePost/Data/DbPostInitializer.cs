@@ -21,26 +21,30 @@ namespace ServicePost.Data
             {
                 new PGPost
                 {
+                    userId="118227711519768270185",
                     Name="Gerwin Lips",
-                    Date="22-02-2022",
+                    Date="22/02/2022",
                     ImgSrc="img1.PNG",
                 },
                 new PGPost
                 {
+                    userId="118227711519768270185",
                     Name="Joost Bogie",
-                    Date="23-02-2022",
+                    Date="23/02/2022",
                     ImgSrc="img2.PNG",
                 },
                 new PGPost
                 {
+                    userId="118227711519768270185",
                     Name="Ken Petit",
-                    Date="24-02-2022",
+                    Date="24/02/2022",
                     ImgSrc="img3.PNG",
                 },
                 new PGPost
                 {
+                    userId="118227711519768270186",
                     Name="Vincent Stolwijk",
-                    Date="25-02-2022",
+                    Date="25/02/2022",
                     ImgSrc="img4.PNG",
                 }
             };

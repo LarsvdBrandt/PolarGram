@@ -10,6 +10,7 @@ namespace ServicePost.Models
     {
         [Key]
         public long id { get; set; }
+        public string userId { get; set; }
         public string Name { get; set; }
         public string Date { get; set; }
         public string ImgSrc { get; set; }

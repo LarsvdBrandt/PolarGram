@@ -1,20 +1,22 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import PostService from "../services/PostService";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { auth0, useAuth0 } from '@auth0/auth0-react'
 import { Route, Redirect, RouteProps } from 'react-router-dom';
+import LoginToUse from "./LoginToUse"
 
 const PolaroidPost = (props) => {
     const { isAuthenticated } = useAuth0();
     const { user } = useAuth0();
     const { loginWithRedirect } = useAuth0();
+    const [userId, setUserId] = useState("");
 
     const current = new Date();
     const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
 
     const history = useHistory();
-    const [post, setPost] = useState({ name: user.nickname, imgSrc: "", date: date });
+    const [post, setPost] = useState({ userId: user.sub.split("|")[1], name: user.nickname, imgSrc: "", date: date });
     const [message, setMessage] = useState("");
 
     const [file, setFile] = useState(""); // storing the uploaded file
@@ -26,6 +28,7 @@ const PolaroidPost = (props) => {
     const handleChange = (event) => {
         setPost({ ...post, [event.target.name]: event.target.value });
     };
+
 
     const handleUpload = (e) => {
         console.log(post)
@@ -62,7 +65,7 @@ const PolaroidPost = (props) => {
     };
 
     if (!isAuthenticated) {
-        return <Redirect to={loginWithRedirect} />
+        return <LoginToUse />
     }
     else {
         return (

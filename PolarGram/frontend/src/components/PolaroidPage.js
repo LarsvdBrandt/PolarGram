@@ -10,6 +10,7 @@ const PolaroidPage = (props) => {
     const { isAuthenticated } = useAuth0();
     const { user } = useAuth0();
     const { loginWithRedirect } = useAuth0();
+    // const [userId, setUserId] = useState({ userId: user.sub.split("|")[1] });
     const [userId, setUserId] = useState("");
 
     const location = useLocation();
@@ -18,6 +19,7 @@ const PolaroidPage = (props) => {
 
     const initialPostState = {
         id: null,
+        userId: "",
         name: "",
         date: "",
         imgSrc: ""
@@ -35,23 +37,19 @@ const PolaroidPage = (props) => {
             });
     };
 
-    const getUserID = () => {
-        const usersub = user.sub.split("|");
-        setUserId(usersub[1]);
-        console.log(userId);
-    };
-
     useEffect(() => {
         getPost();
-        getUserID();
+        if (isAuthenticated) {
+            setUserId(user.sub.split("|")[1])
+        }
     }, []);
 
     return (
         <section id="Services" className="content-section text-center">
             <div className="container">
                 <div className="block-heading">
-                    <h2>Discovery Page</h2>
-                    <p>Find the newest post on this page, have fun!</p>
+                    <h2>Polaroid Page</h2>
+                    <p>Find the polaroid information right here!</p>
                 </div>
                 <div className="row">
                     <div className="col-md-3 col-sm-6">
@@ -98,7 +96,25 @@ const PolaroidPage = (props) => {
                                 )}
                             </div>
                             <div style={{ textAlign: "left" }} className="col-md-6 col-sm-6">
-                                <h4>Post information:</h4>
+                                <div className="row">
+                                    <div className="col-md-10 col-sm-8">
+                                        <h4>Post information:</h4>
+                                    </div>
+                                    <div className="col-md-2 col-sm-4">
+                                        <Link
+                                            to={{
+                                                pathname: "/PolaroidEdit/" + post.id,
+                                                state: post.id,
+                                            }} style={{ marginLeft: "0" }}>
+                                            {isAuthenticated && post.userId === userId.userId && (
+                                                <div className="row">
+                                                    <Icon.PencilSquare style={{ marginTop: "4px" }} />
+                                                    <p style={{ marginLeft: "5px" }}>Edit</p>
+                                                </div>
+                                            )}
+                                        </Link>
+                                    </div>
+                                </div>
                                 <p>User: {post.name}</p>
                                 <hr />
                                 <p>Place: Amsterdam</p>
@@ -107,19 +123,9 @@ const PolaroidPage = (props) => {
                                 <hr />
                                 <p>PostID: {post.id}</p>
                                 <hr />
-                                <p>Current userId: {userId}</p>
+                                <p>Current userId: {post.userId}</p>
                             </div>
                         </div>
-                        {/* <Link
-                            to={{
-                                pathname: "/PolaroidEdit/" + post.id,
-                                state: post.id,
-                            }}>
-                            <div className="row">
-                                <Icon.PencilSquare style={{ marginTop: "5px" }} />
-                                <p style={{ marginLeft: "5px" }}>Edit</p>
-                            </div>
-                        </Link> */}
                     </div>
                 </div>
             </div>

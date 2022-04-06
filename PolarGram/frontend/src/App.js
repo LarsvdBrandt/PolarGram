@@ -16,6 +16,7 @@ import PolaroidEdit from "./components/PolaroidEdit"
 import LandingPage from "./components/LandingPage";
 import PolaroidPost from "./components/PolaroidPost";
 import ProfilePage from "./components/Profilepage"
+import LoginToUse from "./components/LoginToUse"
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
       <div className="container-fluid">
         <Navbar />
         {/* <hr /> */}
+        <Route path="/LoginToUse" component={LoginToUse} />
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/Discovery" component={Discovery} />
         <Route path="/Polaroidpage/:photoid" component={PolaroidPage} />

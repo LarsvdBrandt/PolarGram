@@ -3,13 +3,16 @@ import PostService from "../services/PostService";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useLocation, useRouteMatch } from "react-router-dom";
+import { auth0, useAuth0 } from '@auth0/auth0-react'
 
 const PolaroidEdit = (props) => {
     const history = useHistory();
+    const { user } = useAuth0();
     let match = useRouteMatch("/PolaroidEdit/:photoid");
     let state = Number(match.params.photoid);
     const initialPostState = {
         id: null,
+        userId: user.sub.split("|")[1],
         name: "",
         date: "",
         imgSrc: ""

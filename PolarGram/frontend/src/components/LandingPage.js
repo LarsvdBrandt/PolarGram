@@ -2,10 +2,13 @@ import React from 'react';
 import polargramlogo from "../images/PolarGramLogo.PNG";
 import { Link } from "react-router-dom";
 import Footer from './Footer';
-
+import { auth0, useAuth0 } from '@auth0/auth0-react'
 
 
 function LandingPage() {
+  const { loginWithRedirect } = useAuth0();
+  const { isAuthenticated } = useAuth0();
+
   return (
     <div>
       <section id="Banner" className="content-section">
@@ -40,7 +43,7 @@ function LandingPage() {
                 <div className="service-content">
                   <h3>Register</h3>
                   <p>Make an account, it is super simple and completely free!</p>
-                  <a className="btn btn-primary btn-sm" style={{ marginTop: '30%' }} href="/register">Register</a>
+                  <a className="btn btn-primary btn-sm" style={{ marginTop: '30%' }} onClick={() => loginWithRedirect()}>Register</a>
                 </div>
               </div>
             </div>
@@ -55,7 +58,12 @@ function LandingPage() {
                 <div className="service-content">
                   <h3>Post</h3>
                   <p>After you logged in, make a new post with your favorite image.</p>
-                  <a className="btn btn-primary btn-sm" style={{ marginTop: '30%' }} href="/newPost">Post</a>
+                  {!isAuthenticated && (
+                    <a className="btn btn-primary btn-sm" style={{ marginTop: '30%' }} onClick={() => loginWithRedirect()} >Login before posting</a>
+                  )}
+                  {isAuthenticated && (
+                    <a className="btn btn-primary btn-sm" style={{ marginTop: '30%' }} href="/polaroidpost">Post</a>
+                  )}
                 </div>
               </div>
             </div>
@@ -70,7 +78,12 @@ function LandingPage() {
                 <div className="service-content">
                   <h3>Like</h3>
                   <p>Like your own post, or like a post you like on the discovery page!</p>
-                  <a className="btn btn-primary btn-sm" style={{ marginTop: '30%' }} href="/discovery">Discovery</a>
+                  {!isAuthenticated && (
+                    <a className="btn btn-primary btn-sm" style={{ marginTop: '30%' }} onClick={() => loginWithRedirect()} >Login before liking</a>
+                  )}
+                  {isAuthenticated && (
+                    <a className="btn btn-primary btn-sm" style={{ marginTop: '30%' }} href="/discovery">Like</a>
+                  )}
                 </div>
               </div>
             </div>
@@ -85,7 +98,12 @@ function LandingPage() {
                 <div className="service-content">
                   <h3>Comment</h3>
                   <p>Coment on your own post, or comment on a post that you like on the discovery page!</p>
-                  <a className="btn btn-primary btn-sm" style={{ marginTop: '20%' }} href="/discovery">Discovery</a>
+                  {!isAuthenticated && (
+                    <a className="btn btn-primary btn-sm" style={{ marginTop: '20%' }} onClick={() => loginWithRedirect()} >Login before commenting</a>
+                  )}
+                  {isAuthenticated && (
+                    <a className="btn btn-primary btn-sm" style={{ marginTop: '20%' }} href="/discovery">Comment</a>
+                  )}
                 </div>
               </div>
             </div>

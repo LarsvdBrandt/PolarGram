@@ -4,6 +4,7 @@ import PostService from "../services/PostService";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import * as Icon from 'react-bootstrap-icons';
 import { auth0, useAuth0 } from '@auth0/auth0-react'
+import CommentService from "../services/CommentService";
 
 
 const PolaroidPage = (props) => {
@@ -12,6 +13,7 @@ const PolaroidPage = (props) => {
     const { loginWithRedirect } = useAuth0();
     // const [userId, setUserId] = useState({ userId: user.sub.split("|")[1] });
     const [userId, setUserId] = useState("");
+    const [comments, setComments] = useState([]);
 
     const location = useLocation();
     let match = useRouteMatch("/PolaroidPage/:photoid");
@@ -37,8 +39,32 @@ const PolaroidPage = (props) => {
             });
     };
 
+
+    const retrieveComments = () => {
+        CommentService.getAllByPostId(state)
+            .then((response) => {
+                setComments(response.data);
+                console.log(response.data);
+            })
+            .catch((e) => {
+                console.log(e.message);
+            });
+    };
+
+    const deleteComment = (event) => {
+        CommentService.remove(event.id)
+            .then((response) => {
+                console.log(response.data);
+                retrieveComments();
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+    };
+
     useEffect(() => {
         getPost();
+        retrieveComments();
         if (isAuthenticated) {
             setUserId(user.sub.split("|")[1])
         }
@@ -68,22 +94,17 @@ const PolaroidPage = (props) => {
                         <div className="row" style={{ padding: "1rem" }}>
                             <div style={{ textAlign: "left", borderRadius: "5px", overflowY: "scroll", height: '330px' }} className="col-md-6 col-sm-6 border">
                                 <h4 style={{ position: "sticky", top: "0", background: "white" }}>Comments:</h4>
-                                <p>Lars: Test</p>
-                                <hr />
-                                <p>Lars: Test</p>
-                                <hr />
-                                <p>Lars: Test</p>
-                                <hr />
-                                <p>Lars: Test</p>
-                                <hr />
-                                <p>Lars: Test</p>
-                                <hr />
-                                <p>Lars: Test</p>
-                                <hr />
-                                <p>Lars: Test</p>
-                                <hr />
-                                <p>Lars: Test</p>
-                                <hr />
+
+                                {comments &&
+                                    comments.map((comment, index) => (
+                                        <div key={comment.id}>
+                                            <p>
+                                                {isAuthenticated && comment.userId === userId && (
+                                                    <a onClick={() => deleteComment({ id: comment.id })} className="btn-sm btn-danger">X</a>
+                                                )} User: {comment.comment}</p>
+                                            <hr />
+                                        </div>
+                                    ))}
                                 {!isAuthenticated && (
                                     <div style={{ position: "sticky", bottom: "10px", marginBottom: "10px", backgroundColor: "black", background: "" }}>
                                         <button onClick={() => loginWithRedirect()} className="btn btn-light" style={{ width: "100%", borderColor: "black" }}>Login to comment</button>
@@ -106,7 +127,7 @@ const PolaroidPage = (props) => {
                                                 pathname: "/PolaroidEdit/" + post.id,
                                                 state: post.id,
                                             }} style={{ marginLeft: "0" }}>
-                                            {isAuthenticated && post.userId === userId.userId && (
+                                            {isAuthenticated && post.userId === userId && (
                                                 <div className="row">
                                                     <Icon.PencilSquare style={{ marginTop: "4px" }} />
                                                     <p style={{ marginLeft: "5px" }}>Edit</p>
@@ -123,7 +144,7 @@ const PolaroidPage = (props) => {
                                 <hr />
                                 <p>PostID: {post.id}</p>
                                 <hr />
-                                <p>Current userId: {post.userId}</p>
+                                <p>Current userId: {userId}</p>
                             </div>
                         </div>
                     </div>

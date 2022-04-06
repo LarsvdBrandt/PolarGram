@@ -25,6 +25,19 @@
         }
       ],
       "UpstreamPathTemplate": "/ImageApi/{CatchAll}"
+    },
+    {
+      "DownstreamPathTemplate": "/{CatchAll}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          //"Host": "servicecomment",
+          //"Port": 80,
+          "Port": 5003
+        }
+      ],
+      "UpstreamPathTemplate": "/ServiceComment/{CatchAll}"
     }
   ],
   "GlobalConfiguration": {

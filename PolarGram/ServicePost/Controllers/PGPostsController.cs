@@ -49,14 +49,15 @@ namespace ServicePost.Controllers
         {
             _pGPostService.Create(post);
 
-            return CreatedAtRoute("GetBook", new { id = post.Id.ToString() }, post);
+            return post;
+            //return CreatedAtRoute("GetPost", new { id = post.Id.ToString() }, post);
         }
 
         // PUT: api/PGPosts/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id:length(24)}")]
-        public IActionResult PutPGPost(string id, PGPost bookIn)
+        public IActionResult PutPGPost(string id, PGPost PostIn)
         {
             var post = _pGPostService.Get(id);
 
@@ -65,7 +66,7 @@ namespace ServicePost.Controllers
                 return NotFound();
             }
 
-            _pGPostService.Update(id, bookIn);
+            _pGPostService.Update(id, PostIn);
 
             return NoContent();
         }

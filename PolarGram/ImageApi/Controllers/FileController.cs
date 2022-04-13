@@ -20,7 +20,7 @@ namespace ImageApi.Controllers
             try
             {
                 string path = Path.Combine(Directory.GetCurrentDirectory(), "UploadImages", file.FileName);
-
+                
                 using (Stream stream = new FileStream(path, FileMode.Create))
                 {
                     file.FormFile.CopyTo(stream);

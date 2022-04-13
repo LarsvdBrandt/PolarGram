@@ -24,6 +24,10 @@ namespace TestServicePost
 
         }
 
+
+        /*
+        Deactivate all tests 
+         
         //get
 
         [Fact]
@@ -37,7 +41,7 @@ namespace TestServicePost
         [Fact]
         public async Task Get_One_OK()
         {
-            var response = await _client.GetAsync("/PGPosts/1");
+            var response = await _client.GetAsync("/PGPosts/6256cdcf183cd89702594e6f");
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
@@ -51,19 +55,17 @@ namespace TestServicePost
         }
 
         //delete
-
         [Fact]
         public async Task Delete_One_OK()
         {
-            var response = await _client.DeleteAsync("/PGPosts/2");
+            var response = await _client.DeleteAsync("/PGPosts/6256c3e2752e64bf0a08b1e8");
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
-
         [Fact]
         public async Task Delete_One_Not_OK()
         {
-            var response = await _client.DeleteAsync("/PGPosts/7");
+            var response = await _client.DeleteAsync("/PGPosts/6256c3e2752e64bf0a08b1e9");
 
             response.StatusCode.Should().Be(HttpStatusCode.NotFound);
         }
@@ -76,44 +78,28 @@ namespace TestServicePost
 
             var response = await _client.PostAsync("/PGPosts", new StringContent(JsonConvert.SerializeObject(new PGPost()
             {
-                Id = "5",
-                Name = "Name5",
-                ImgSrc = "Test5.jpg",
+                Id = "6256c3e2752e64bf0a08b1e",
+                UserId = "userId",
+                Name = "TestName",
+                ImgSrc = "TestImage.jpg",
                 Date = "Date1",
 
             }), Encoding.UTF8, "application/json"));
 
 
-            response.StatusCode.Should().Be(HttpStatusCode.Created);
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
 
         }
-
-        /* [Fact]
-        public async Task Post_Not_OK()
-        {
-
-            var response = await _client.PostAsync("/PGPosts", new StringContent(JsonConvert.SerializeObject(new PGPost()
-            {
-                id = 5,
-                Name = "Name5",
-                Date = "Date1",
-
-            }), Encoding.UTF8, "application/json"));
-
-
-            response.StatusCode.Should().Be(HttpStatusCode.NoContent);
-
-        }
-        */
 
         //Edit
         [Fact]
         public async Task Edit_One_OK()
         {
 
-            var response = await _client.PutAsync("/PGPosts/1", new StringContent(JsonConvert.SerializeObject(new PGPost()
+            var response = await _client.PutAsync("/PGPosts/6256c3e2752e64bf0a08b1e5", new StringContent(JsonConvert.SerializeObject(new PGPost()
             {
-                Id = "1",
+                Id = "6256c3e2752e64bf0a08b1e5",
+                UserId = "userId",
                 Name = "TestName",
                 ImgSrc = "TestImage.jpg",
                 Date = "Date1",
@@ -129,10 +115,11 @@ namespace TestServicePost
         public async Task Edit_One_Not_OK()
         {
 
-            var response = await _client.PutAsync("/PGPosts/9", new StringContent(JsonConvert.SerializeObject(new PGPost()
+            var response = await _client.PutAsync("/PGPosts/6256c3e2752e64bf0a08b1e9", new StringContent(JsonConvert.SerializeObject(new PGPost()
             {
                 Id = "9",
                 Name = "Name9",
+                UserId = "User9",
                 ImgSrc = "Test9.jpg",
                 Date = "Date9",
 
@@ -142,5 +129,6 @@ namespace TestServicePost
             response.StatusCode.Should().Be(HttpStatusCode.NotFound);
 
         }
+        */
     }
 }

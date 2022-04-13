@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ServicePost.Data;
 using ServicePost.Models;
+using ServicePost.Services;
 
 namespace ServicePost.Controllers
 {
@@ -12,106 +15,74 @@ namespace ServicePost.Controllers
     [ApiController]
     public class PGPostsController : ControllerBase
     {
-        private readonly PGPostContext _context;
-
-        public PGPostsController(PGPostContext context)
+        private readonly PGPostService _pGPostService;
+        public PGPostsController(PGPostService PGPostService)
         {
-            _context = context;
+            _pGPostService = PGPostService;
         }
 
-        // GET: api/PGPosts/Name
-        [HttpGet("ByName/{id}")]
-        public async Task<ActionResult<IEnumerable<PGPost>>> GetPGPostsByName(string id)
-        {
-            var pgPosts = _context.PGPosts.Where(a => a.Name == id).ToList();
-
-            return pgPosts;
-        }
-
-        // GET: api/PGPosts
+        // GET: getall
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PGPost>>> GetPGPosts()
-        {
-            return await _context.PGPosts.ToListAsync();
-        }
+        public ActionResult<List<PGPost>> Get() =>
+            _pGPostService.Get();
 
         // GET: api/PGPosts/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<PGPost>> GetPGPost(long id)
+        [HttpGet("{id:length(24)}")]
+        public async Task<ActionResult<PGPost>> GetPGPost(string id)
         {
-            var pGPost = await _context.PGPosts.FindAsync(id);
+            var post = _pGPostService.Get(id);
 
-            if (pGPost == null)
+            if (post == null)
             {
                 return NotFound();
             }
 
-            return pGPost;
-        }
-
-        // PUT: api/PGPosts/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutPGPost(long id, PGPost pGPost)
-        {
-            if (id != pGPost.id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(pGPost).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PGPostExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            return post;
         }
 
         // POST: api/PGPosts
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPost]
-        public async Task<ActionResult<PGPost>> PostPGPost(PGPost pGPost)
-        {
-            _context.PGPosts.Add(pGPost);
-            await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPGPost", new { id = pGPost.id }, pGPost);
+        [HttpPost]
+        public ActionResult<PGPost> PostPGPost(PGPost post)
+        {
+            _pGPostService.Create(post);
+
+            return CreatedAtRoute("GetBook", new { id = post.Id.ToString() }, post);
         }
 
-        // DELETE: api/PGPosts/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<PGPost>> DeletePGPost(long id)
+        // PUT: api/PGPosts/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [HttpPut("{id:length(24)}")]
+        public IActionResult PutPGPost(string id, PGPost bookIn)
         {
-            var pGPost = await _context.PGPosts.FindAsync(id);
-            if (pGPost == null)
+            var post = _pGPostService.Get(id);
+
+            if (post == null)
             {
                 return NotFound();
             }
 
-            _context.PGPosts.Remove(pGPost);
-            await _context.SaveChangesAsync();
+            _pGPostService.Update(id, bookIn);
 
-            return pGPost;
+            return NoContent();
         }
 
-        private bool PGPostExists(long id)
+        [HttpDelete("{id:length(24)}")]
+        public IActionResult Delete(string id)
         {
-            return _context.PGPosts.Any(e => e.id == id);
+            var post = _pGPostService.Get(id);
+
+            if (post == null)
+            {
+                return NotFound();
+            }
+
+            _pGPostService.Remove(id);
+
+            return NoContent();
         }
     }
 }

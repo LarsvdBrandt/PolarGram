@@ -25,10 +25,10 @@ namespace TestServicePost
         {
             return new List<PGPost>()
             {
-             new PGPost(){id = 1, Name = "Name1", ImgSrc="Test1.jpg", Date = "Date1"},
-             new PGPost(){id = 2, Name = "Name2", ImgSrc="Test2.jpg", Date = "Date2"},
-             new PGPost(){id = 3, Name = "Name3", ImgSrc="Test3.jpg", Date = "Date3"},
-             new PGPost(){id = 4, Name = "Name4", ImgSrc="Test4.jpg", Date = "Date4"},
+             new PGPost(){Id = "1", Name = "Name1", ImgSrc="Test1.jpg", Date = "Date1"},
+             new PGPost(){Id = "2", Name = "Name2", ImgSrc="Test2.jpg", Date = "Date2"},
+             new PGPost(){Id = "3", Name = "Name3", ImgSrc="Test3.jpg", Date = "Date3"},
+             new PGPost(){Id = "4", Name = "Name4", ImgSrc="Test4.jpg", Date = "Date4"},
             };
         }
     }

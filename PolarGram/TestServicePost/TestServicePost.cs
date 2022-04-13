@@ -76,7 +76,7 @@ namespace TestServicePost
 
             var response = await _client.PostAsync("/PGPosts", new StringContent(JsonConvert.SerializeObject(new PGPost()
             {
-                id = 5,
+                Id = "5",
                 Name = "Name5",
                 ImgSrc = "Test5.jpg",
                 Date = "Date1",
@@ -113,7 +113,7 @@ namespace TestServicePost
 
             var response = await _client.PutAsync("/PGPosts/1", new StringContent(JsonConvert.SerializeObject(new PGPost()
             {
-                id = 1,
+                Id = "1",
                 Name = "TestName",
                 ImgSrc = "TestImage.jpg",
                 Date = "Date1",
@@ -131,7 +131,7 @@ namespace TestServicePost
 
             var response = await _client.PutAsync("/PGPosts/9", new StringContent(JsonConvert.SerializeObject(new PGPost()
             {
-                id = 9,
+                Id = "9",
                 Name = "Name9",
                 ImgSrc = "Test9.jpg",
                 Date = "Date9",

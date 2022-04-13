@@ -24,7 +24,7 @@ const PolaroidEdit = (props) => {
     const [file, setFile] = useState(""); // storing the uploaded file
 
     const getPost = async (id) => {
-        let apiResponse = await PostService.get(state);
+        let apiResponse = await PostService.get(match.params.photoid);
         setPost(apiResponse.data);
         console.log(apiResponse.data);
     };
@@ -70,7 +70,7 @@ const PolaroidEdit = (props) => {
     };
 
     const deletePost = () => {
-        PostService.remove(post.id)
+        PostService.remove(match.params.photoid)
             .then((response) => {
                 console.log(response.data);
                 props.history.push("/Discovery");

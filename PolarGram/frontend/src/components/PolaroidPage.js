@@ -35,7 +35,7 @@ const PolaroidPage = (props) => {
     const [post, setPost] = useState(initialPostState);
 
     const getPost = () => {
-        PostService.get(state)
+        PostService.get(match.params.photoid)
             .then((response) => {
                 setPost(response.data);
                 console.log(response.data);
@@ -47,10 +47,10 @@ const PolaroidPage = (props) => {
 
 
     const retrieveComments = () => {
-        CommentService.getAllByPostId(state)
+        CommentService.getAllByPostId(match.params.photoid)
             .then((response) => {
                 setComments(response.data);
-                console.log(response.data);
+                // console.log(response.data);
             })
             .catch((e) => {
                 console.log(e.message);

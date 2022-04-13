@@ -20,10 +20,7 @@ D:\repos\PolarGram\PolarGram\bin\Debug\Microsoft.Extensions.DependencyInjection.
 D:\repos\PolarGram\PolarGram\bin\Debug\Ocelot.dll
 D:\repos\PolarGram\PolarGram\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
 D:\repos\PolarGram\PolarGram\bin\Debug\Microsoft.EntityFrameworkCore.dll
-D:\repos\PolarGram\PolarGram\bin\Debug\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\repos\PolarGram\PolarGram\bin\Debug\System.ComponentModel.Annotations.dll
-D:\repos\PolarGram\PolarGram\bin\Debug\Microsoft.EntityFrameworkCore.InMemory.dll
-D:\repos\PolarGram\PolarGram\bin\Debug\Microsoft.OpenApi.dll
 D:\repos\PolarGram\PolarGram\bin\Debug\Microsoft.Extensions.Primitives.dll
 D:\repos\PolarGram\PolarGram\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
 D:\repos\PolarGram\PolarGram\bin\Debug\Newtonsoft.Json.dll
@@ -38,7 +35,6 @@ D:\repos\PolarGram\PolarGram\bin\Debug\Microsoft.AspNetCore.MiddlewareAnalysis.d
 D:\repos\PolarGram\PolarGram\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
 D:\repos\PolarGram\PolarGram\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.dll
 D:\repos\PolarGram\PolarGram\bin\Debug\System.Collections.Immutable.dll
-D:\repos\PolarGram\PolarGram\bin\Debug\Swashbuckle.AspNetCore.Swagger.dll
 D:\repos\PolarGram\PolarGram\bin\Debug\Microsoft.AspNetCore.JsonPatch.dll
 D:\repos\PolarGram\PolarGram\bin\Debug\Newtonsoft.Json.Bson.dll
 D:\repos\PolarGram\PolarGram\bin\Debug\APIGateway.pdb
@@ -47,3 +43,10 @@ D:\repos\PolarGram\PolarGram\bin\Debug\ImageApi.pdb
 D:\repos\PolarGram\PolarGram\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
 D:\repos\PolarGram\PolarGram\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
 D:\repos\PolarGram\PolarGram\obj\Debug\docker-compose.dcproj.CopyComplete
+D:\repos\PolarGram\PolarGram\bin\Debug\MongoDB.Driver.dll
+D:\repos\PolarGram\PolarGram\bin\Debug\MongoDB.Bson.dll
+D:\repos\PolarGram\PolarGram\bin\Debug\MongoDB.Driver.Core.dll
+D:\repos\PolarGram\PolarGram\bin\Debug\MongoDB.Libmongocrypt.dll
+D:\repos\PolarGram\PolarGram\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\repos\PolarGram\PolarGram\bin\Debug\DnsClient.dll
+D:\repos\PolarGram\PolarGram\bin\Debug\SharpCompress.dll

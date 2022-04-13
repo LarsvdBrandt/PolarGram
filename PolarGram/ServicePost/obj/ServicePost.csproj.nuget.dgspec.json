@@ -47,6 +47,10 @@
               "target": "Package",
               "version": "[2.2.0, )"
             },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.24, )"
+            },
             "Microsoft.CodeAnalysis.CSharp.Workspaces": {
               "target": "Package",
               "version": "[3.7.0, )"
@@ -84,6 +88,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.4, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.12.4, )"
             },
             "MySql.Data": {
               "target": "Package",

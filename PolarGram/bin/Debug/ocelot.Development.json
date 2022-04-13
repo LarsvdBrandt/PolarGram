@@ -5,8 +5,10 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "servicepost",
-          "Port": 80
+          "Host": "localhost",
+          //"Host": "servicepost",
+          "Port": 5001
+          //"Port": 80
         }
       ],
       "UpstreamPathTemplate": "/ServicePost/{CatchAll}"
@@ -16,11 +18,26 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "imageapi",
-          "Port": 80
+          "Host": "localhost",
+          //"Host": "imageapi",
+          //"Port": 80,
+          "Port": 5002
         }
       ],
       "UpstreamPathTemplate": "/ImageApi/{CatchAll}"
+    },
+    {
+      "DownstreamPathTemplate": "/{CatchAll}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          //"Host": "servicepost",
+          "Port": 5003
+          //"Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/ServiceComment/{CatchAll}"
     }
   ],
   "GlobalConfiguration": {

@@ -1,10 +1,5 @@
-D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\ServicePost.deps.json
-D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\ServicePost.runtimeconfig.json
-D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\ServicePost.runtimeconfig.dev.json
-D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\ServicePost.exe
 D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\appsettings.json
-D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\ServiceComment.StaticWebAssets.xml
 D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\ServiceComment.exe
 D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\ServiceComment.deps.json
 D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\ServiceComment.runtimeconfig.json
@@ -157,8 +152,6 @@ D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\runtimes\win-x86\nativ
 D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\ServicePost.dll
-D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\ServicePost.pdb
 D:\repos\PolarGram\ServiceComment\obj\Debug\netcoreapp3.1\ServiceComment.csproj.AssemblyReference.cache
 D:\repos\PolarGram\ServiceComment\obj\Debug\netcoreapp3.1\ServiceComment.GeneratedMSBuildEditorConfig.editorconfig
 D:\repos\PolarGram\ServiceComment\obj\Debug\netcoreapp3.1\ServiceComment.AssemblyInfoInputs.cache
@@ -167,7 +160,6 @@ D:\repos\PolarGram\ServiceComment\obj\Debug\netcoreapp3.1\ServiceComment.csproj.
 D:\repos\PolarGram\ServiceComment\obj\Debug\netcoreapp3.1\ServiceComment.MvcApplicationPartsAssemblyInfo.cs
 D:\repos\PolarGram\ServiceComment\obj\Debug\netcoreapp3.1\ServiceComment.MvcApplicationPartsAssemblyInfo.cache
 D:\repos\PolarGram\ServiceComment\obj\Debug\netcoreapp3.1\staticwebassets\ServiceComment.StaticWebAssets.Manifest.cache
-D:\repos\PolarGram\ServiceComment\obj\Debug\netcoreapp3.1\staticwebassets\ServiceComment.StaticWebAssets.xml
 D:\repos\PolarGram\ServiceComment\obj\Debug\netcoreapp3.1\ServiceComment.RazorTargetAssemblyInfo.cache
 D:\repos\PolarGram\ServiceComment\obj\Debug\netcoreapp3.1\ServiceComment.csproj.CopyComplete
 D:\repos\PolarGram\ServiceComment\obj\Debug\netcoreapp3.1\ServiceComment.dll

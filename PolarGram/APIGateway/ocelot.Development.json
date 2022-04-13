@@ -32,9 +32,9 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          //"Host": "servicecomment",
-          //"Port": 80,
+          //"Host": "servicepost",
           "Port": 5003
+          //"Port": 80
         }
       ],
       "UpstreamPathTemplate": "/ServiceComment/{CatchAll}"

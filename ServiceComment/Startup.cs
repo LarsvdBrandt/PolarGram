@@ -34,6 +34,11 @@ namespace ServiceComment
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CommentAPI", Version = "v1" });
             });
+
+            services.AddMvc(options =>
+            {
+                options.SuppressAsyncSuffixInActionNames = false;
+            });
             //tot hier
 
             /* terugcommenten

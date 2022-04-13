@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "mekVxn4EfhTSOEWNNdC9l5v27HL9CX5iA7QDJ5R21/uTmdQnB+ibICCCt9fMxySA/RQrrFNp44DcQk97HGye4w==",
+  "dgSpecHash": "lQh9SEq675O+qORyZHHXTDEyJpnf8SE3HKKu1cGmGzumiHBdUu7q62tHiWsASRxRIbkrvCzu3h4ytUewEXzBKA==",
   "success": true,
   "projectFilePath": "D:\\repos\\PolarGram\\ServiceComment\\ServiceComment.csproj",
   "expectedPackageFiles": [
@@ -65,7 +65,6 @@
     "C:\\Users\\larsv\\.nuget\\packages\\microsoft.netcore.platforms\\3.0.0\\microsoft.netcore.platforms.3.0.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\larsv\\.nuget\\packages\\microsoft.openapi\\1.1.4\\microsoft.openapi.1.1.4.nupkg.sha512",
-    "C:\\Users\\larsv\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.11.1\\microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512",
     "C:\\Users\\larsv\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\3.1.4\\microsoft.visualstudio.web.codegeneration.3.1.4.nupkg.sha512",
     "C:\\Users\\larsv\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.contracts\\3.1.4\\microsoft.visualstudio.web.codegeneration.contracts.3.1.4.nupkg.sha512",
     "C:\\Users\\larsv\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\3.1.4\\microsoft.visualstudio.web.codegeneration.core.3.1.4.nupkg.sha512",

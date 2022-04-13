@@ -8,16 +8,22 @@ import CommentService from "../services/CommentService";
 
 
 const PolaroidPage = (props) => {
+    let match = useRouteMatch("/PolaroidPage/:photoid");
+    let state = Number(match.params.photoid);
     const { isAuthenticated } = useAuth0();
     const { user } = useAuth0();
     const { loginWithRedirect } = useAuth0();
     // const [userId, setUserId] = useState({ userId: user.sub.split("|")[1] });
     const [userId, setUserId] = useState("");
     const [comments, setComments] = useState([]);
+    const [postComment, setPostComment] = useState({
+        id: null,
+        postId: state,
+        userId: user.sub.split("|")[1],
+        comment: ""
+    });
 
     const location = useLocation();
-    let match = useRouteMatch("/PolaroidPage/:photoid");
-    let state = Number(match.params.photoid);
 
     const initialPostState = {
         id: null,
@@ -62,12 +68,45 @@ const PolaroidPage = (props) => {
             });
     };
 
+    const handleChange = (event) => {
+        setPostComment({ ...postComment, [event.target.name]: event.target.value });
+        console.log(postComment)
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        CommentService.create({
+            id: null,
+            postId: state,
+            userId: user.sub.split("|")[1],
+            comment: "TestLars"
+        })
+            .then((res) => {
+                console.log(res.data);
+                retrieveComments();
+                handleReset();
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+    };
+
+    const handleReset = () => {
+        Array.from(document.querySelectorAll("input")).forEach(
+            (input) => (input.value = "")
+        );
+        this.setState({
+            itemvalues: [{}],
+        });
+    };
+
     useEffect(() => {
         getPost();
         retrieveComments();
         if (isAuthenticated) {
             setUserId(user.sub.split("|")[1])
         }
+        console.log(postComment)
     }, []);
 
     return (
@@ -111,8 +150,15 @@ const PolaroidPage = (props) => {
                                     </div>
                                 )}
                                 {isAuthenticated && (
-                                    <div style={{ position: "sticky", bottom: "10px", marginBottom: "10px", backgroundColor: "black", background: "" }}>
-                                        <input name="comment" className="form-control" placeholder="Comment something..." type="comment" required />
+                                    <div className="row">
+                                        <div className="col-lg-9">
+                                            <div style={{ position: "sticky", bottom: "10px", marginBottom: "10px", backgroundColor: "black", background: "" }}>
+                                                <input onChange={handleChange} name="comment" className="form-control" placeholder="Comment something..." type="comment" required />
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3">
+                                            <button className="btn btn-primary" onClick={handleSubmit}>Send</button>
+                                        </div>
                                     </div>
                                 )}
                             </div>

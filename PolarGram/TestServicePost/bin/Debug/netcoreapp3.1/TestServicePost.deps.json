@@ -1726,6 +1726,7 @@
           "lib/netcoreapp2.1/testhost.dll": {}
         }
       },
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.11.1": {},
       "Microsoft.VisualStudio.Web.CodeGeneration/3.1.4": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "5.0.0",
@@ -3223,6 +3224,7 @@
           "Microsoft.EntityFrameworkCore.Sqlite": "3.1.8",
           "Microsoft.Extensions.Logging.Console": "3.1.9",
           "Microsoft.Extensions.Logging.Debug": "3.1.9",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.11.1",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.4",
           "MySql.Data": "8.0.21",
           "Swashbuckle.AspNetCore": "5.3.3"
@@ -5308,6 +5310,13 @@
       "sha512": "sha512-3YuJ7OSb1YPk+OTZfpa8U7I+TUZRH/nCeOWcN+TERp1SUZrcGeG2IGBZvVZ9CbKuQ+7wLiwsfcIgKIu+kbvibg==",
       "path": "microsoft.testplatform.testhost/16.9.4",
       "hashPath": "microsoft.testplatform.testhost.16.9.4.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.11.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1jHxWlSi6/ryWODk6SUjsZPHk/BdsucxqhIi1szEzwc84e8nvZWF45qRXcT2gWPISJ3Ybbyg2LsNG6yX8r7VuA==",
+      "path": "microsoft.visualstudio.azure.containers.tools.targets/1.11.1",
+      "hashPath": "microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512"
     },
     "Microsoft.VisualStudio.Web.CodeGeneration/3.1.4": {
       "type": "package",

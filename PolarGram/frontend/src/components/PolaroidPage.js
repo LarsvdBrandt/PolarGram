@@ -18,7 +18,7 @@ const PolaroidPage = (props) => {
     const [comments, setComments] = useState([]);
     const [postComment, setPostComment] = useState({
         id: null,
-        postId: state,
+        postId: match.params.photoid,
         userId: user.sub.split("|")[1],
         comment: ""
     });
@@ -75,12 +75,7 @@ const PolaroidPage = (props) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        CommentService.create({
-            id: null,
-            postId: state,
-            userId: user.sub.split("|")[1],
-            comment: "TestLars"
-        })
+        CommentService.create(postComment)
             .then((res) => {
                 console.log(res.data);
                 retrieveComments();

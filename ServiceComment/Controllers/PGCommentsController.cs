@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ServiceComment.Data;
 using ServiceComment.Models;
+using ServiceComment.Services;
 
 namespace ServiceComment.Controllers
 {
@@ -12,61 +13,56 @@ namespace ServiceComment.Controllers
     [ApiController]
     public class PGCommentsController : ControllerBase
     {
-        private readonly PGCommentContext _context;
-
-        public PGCommentsController(PGCommentContext context)
+        private readonly PGCommentService _pGCommentService;
+        public PGCommentsController(PGCommentService PGCommentService)
         {
-            _context = context;
+            _pGCommentService = PGCommentService;
         }
 
         // GET: api/PGComments/postId
         [HttpGet("ByPostId/{id}")]
-        public async Task<ActionResult<IEnumerable<PGComment>>> GetPGCommentsById(int id)
+        public ActionResult<List<PGComment>> GetPGCommentsById(string id)
         {
-            var pgComments = _context.PGComments.Where(a => a.postId == id).ToList();
+            var comment = _pGCommentService.GetByPost(id);
 
-            return pgComments;
+            if (comment == null)
+            {
+                return NotFound();
+            }
+
+            return comment;
         }
 
         // GET: api/PGPosts
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PGComment>>> GetPGComments()
-        {
-            return await _context.PGComments.ToListAsync();
-        }
+        public ActionResult<List<PGComment>> Get() =>
+            _pGCommentService.Get();
 
 
         // POST: api/PGPosts
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<PGComment>> PostPGComment(PGComment pGComment)
+        public ActionResult<PGComment> PostPGComment(PGComment comment)
         {
-            _context.PGComments.Add(pGComment);
-            await _context.SaveChangesAsync();
+            _pGCommentService.Create(comment);
 
-            return CreatedAtAction("GetPGPost", new { id = pGComment.id }, pGComment);
+            return comment;
         }
 
-        // DELETE: api/PGComments/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<PGComment>> DeletePGComment(long id)
+        [HttpDelete("{id:length(24)}")]
+        public IActionResult Delete(string id)
         {
-            var pGComment = await _context.PGComments.FindAsync(id);
-            if (pGComment == null)
+            var comment = _pGCommentService.Get(id);
+
+            if (comment == null)
             {
                 return NotFound();
             }
 
-            _context.PGComments.Remove(pGComment);
-            await _context.SaveChangesAsync();
+            _pGCommentService.Remove(id);
 
-            return pGComment;
-        }
-
-        private bool PGCommentExists(long id)
-        {
-            return _context.PGComments.Any(e => e.id == id);
+            return NoContent();
         }
     }
 }

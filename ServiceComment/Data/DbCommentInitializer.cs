@@ -16,6 +16,7 @@ namespace ServiceComment.Data
                 return;
             }
 
+            /*
             var pgComments = new PGComment[]
             {
                 new PGComment
@@ -41,6 +42,7 @@ namespace ServiceComment.Data
             {
                 context.PGComments.Add(pgComment);
             }
+            */
             context.SaveChanges();
         }
     }

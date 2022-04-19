@@ -165,3 +165,16 @@ D:\repos\PolarGram\ServiceComment\obj\Debug\netcoreapp3.1\ServiceComment.csproj.
 D:\repos\PolarGram\ServiceComment\obj\Debug\netcoreapp3.1\ServiceComment.dll
 D:\repos\PolarGram\ServiceComment\obj\Debug\netcoreapp3.1\ServiceComment.pdb
 D:\repos\PolarGram\ServiceComment\obj\Debug\netcoreapp3.1\ServiceComment.genruntimeconfig.cache
+D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\DnsClient.dll
+D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\MongoDB.Bson.dll
+D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\MongoDB.Driver.dll
+D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\MongoDB.Driver.Core.dll
+D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\MongoDB.Libmongocrypt.dll
+D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\SharpCompress.dll
+D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\runtimes\win\native\libzstd.dll
+D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy32.dll
+D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy64.dll
+D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\runtimes\linux\native\libmongocrypt.so
+D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\runtimes\osx\native\libmongocrypt.dylib
+D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\runtimes\win\native\mongocrypt.dll

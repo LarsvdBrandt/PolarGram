@@ -13,17 +13,12 @@ namespace ServiceComment
 {
     public class Program
     {
-
         public static void Main(string[] args)
         {
-            var host = CreateHostBuilder(args).Build();
-
-            CreateDbIfNotExists(host);
-
-            host.Run();
+            CreateHostBuilder(args).Build().Run();
         }
 
-        private static void CreateDbIfNotExists(IHost host)
+        /*private static void CreateDbIfNotExists(IHost host)
         {
             using (var scope = host.Services.CreateScope())
             {
@@ -31,8 +26,8 @@ namespace ServiceComment
 
                 try
                 {
-                    var context = services.GetRequiredService<PGCommentContext>();
-                    DbCommentInitializer.Initialize(context);
+                    var context = services.GetRequiredService<PGPostContext>();
+                    DbPostInitializer.Initialize(context);
                 }
                 catch (Exception ex)
                 {
@@ -40,7 +35,7 @@ namespace ServiceComment
                     logger.LogError(ex, "An error occurred creating the DB.");
                 }
             }
-        }
+        }*/
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)

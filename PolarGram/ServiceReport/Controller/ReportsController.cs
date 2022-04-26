@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ServiceReport.Controller
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class ReportsController : ControllerBase
     {

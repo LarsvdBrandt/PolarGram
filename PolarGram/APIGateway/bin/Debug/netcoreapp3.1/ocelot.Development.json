@@ -38,6 +38,17 @@
         }
       ],
       "UpstreamPathTemplate": "/ServiceComment/{CatchAll}"
+    },
+    {
+      "DownstreamPathTemplate": "/{CatchAll}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5004
+        }
+      ],
+      "UpstreamPathTemplate": "/ServiceReport/{CatchAll}"
     }
   ],
   "GlobalConfiguration": {

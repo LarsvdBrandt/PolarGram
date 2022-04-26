@@ -3,6 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using Plain.RabbitMQ;
 using ServiceComment.Data;
 using ServiceComment.Models;
 using ServiceComment.Services;
@@ -14,9 +16,11 @@ namespace ServiceComment.Controllers
     public class PGCommentsController : ControllerBase
     {
         private readonly PGCommentService _pGCommentService;
-        public PGCommentsController(PGCommentService PGCommentService)
+        private readonly IPublisher _pGPublisher;
+        public PGCommentsController(PGCommentService PGCommentService, IPublisher publisher)
         {
             _pGCommentService = PGCommentService;
+            _pGPublisher = publisher;
         }
 
         // GET: api/PGComments/postId
@@ -45,6 +49,7 @@ namespace ServiceComment.Controllers
         [HttpPost]
         public ActionResult<PGComment> PostPGComment(PGComment comment)
         {
+            _pGPublisher.Publish(JsonConvert.SerializeObject(comment), "report.comment", null);
             _pGCommentService.Create(comment);
 
             return comment;

@@ -178,3 +178,6 @@ D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\runtimes\win\native\sn
 D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\runtimes\linux\native\libmongocrypt.so
 D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\runtimes\osx\native\libmongocrypt.dylib
 D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\runtimes\win\native\mongocrypt.dll
+D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\Plain.RabbitMQ.dll
+D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\RabbitMQ.Client.dll
+D:\repos\PolarGram\ServiceComment\bin\Debug\netcoreapp3.1\System.Threading.Channels.dll

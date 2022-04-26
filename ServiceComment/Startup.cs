@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using Plain.RabbitMQ;
+using RabbitMQ.Client;
 using ServiceComment.Data;
 using ServiceComment.Models;
 using ServiceComment.Services;
@@ -38,7 +40,22 @@ namespace ServiceComment
 
             services.AddSingleton<PGCommentService>();
 
+            services.AddSingleton<IConnectionProvider>(new ConnectionProvider("amqp://guest:guest@localhost:5672"));
+            services.AddScoped<IPublisher>(x => new Publisher(x.GetService<IConnectionProvider>(),
+                "report_exchange",
+                ExchangeType.Topic
+                ));
+
             services.AddControllers();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+                {
+                    Title = "Comment Service",
+                    Version = "v1"
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +71,12 @@ namespace ServiceComment
             app.UseStaticFiles();
 
             app.UseHttpsRedirection();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Comment API");
+            });
 
             app.UseRouting();
 

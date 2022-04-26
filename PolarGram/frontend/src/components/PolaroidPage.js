@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, setState } from "react";
 import { useLocation, useRouteMatch, Link } from "react-router-dom";
 import PostService from "../services/PostService";
 import { Container, Row, Col, Card } from "react-bootstrap";
@@ -13,13 +13,13 @@ const PolaroidPage = (props) => {
     const { isAuthenticated } = useAuth0();
     const { user } = useAuth0();
     const { loginWithRedirect } = useAuth0();
-    // const [userId, setUserId] = useState({ userId: user.sub.split("|")[1] });
+    const [userSub, setUserSub] = useState(user.sub.split("|")[1]);
     const [userId, setUserId] = useState("");
     const [comments, setComments] = useState([]);
     const [postComment, setPostComment] = useState({
         id: null,
         postId: match.params.photoid,
-        userId: user.sub.split("|")[1],
+        userId: userSub,
         comment: ""
     });
 

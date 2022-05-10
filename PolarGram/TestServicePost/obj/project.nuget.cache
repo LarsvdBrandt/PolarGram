@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+5sHNIqRGLU5bSE7yws7pz02VYb1p0DLfZWdPsqNg0NMo1GX0XqXNSwwbFhXnL/rK0dafIykvEaVG3G+iAwXtA==",
+  "dgSpecHash": "WGg71M2x0IES0KSQI6jxfLe31Jgd5mPhDr9zXjur46XBDUcV7yb97BLs5M/aYrAEquOKFSL+9UffKsXzRF4hTA==",
   "success": true,
   "projectFilePath": "D:\\repos\\PolarGram\\PolarGram\\TestServicePost\\TestServicePost.csproj",
   "expectedPackageFiles": [
@@ -111,6 +111,8 @@
     "C:\\Users\\larsv\\.nuget\\packages\\nuget.frameworks\\5.0.0\\nuget.frameworks.5.0.0.nupkg.sha512",
     "C:\\Users\\larsv\\.nuget\\packages\\nunit\\3.13.1\\nunit.3.13.1.nupkg.sha512",
     "C:\\Users\\larsv\\.nuget\\packages\\nunit3testadapter\\3.17.0\\nunit3testadapter.3.17.0.nupkg.sha512",
+    "C:\\Users\\larsv\\.nuget\\packages\\plain.rabbitmq\\0.0.0.4\\plain.rabbitmq.0.0.0.4.nupkg.sha512",
+    "C:\\Users\\larsv\\.nuget\\packages\\rabbitmq.client\\6.2.1\\rabbitmq.client.6.2.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.native.system.security.cryptography\\4.0.0\\runtime.native.system.security.cryptography.4.0.0.nupkg.sha512",
@@ -206,6 +208,7 @@
     "C:\\Users\\larsv\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.text.regularexpressions\\4.3.0\\system.text.regularexpressions.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
+    "C:\\Users\\larsv\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\larsv\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.3\\system.threading.tasks.extensions.4.5.3.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.threading.thread\\4.3.0\\system.threading.thread.4.3.0.nupkg.sha512",

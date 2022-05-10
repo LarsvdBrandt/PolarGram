@@ -16,6 +16,9 @@ using ServicePost.Data;
 using Microsoft.OpenApi.Models;
 using Microsoft.Extensions.Options;
 using ServicePost.Services;
+using Plain.RabbitMQ;
+using RabbitMQ.Client;
+using ServicePost.RabbitMQ;
 
 namespace ServicePost
 {
@@ -39,6 +42,15 @@ namespace ServicePost
                 sp.GetRequiredService<IOptions<PGPostSettings>>().Value);
 
             services.AddSingleton<PGPostService>();
+
+            services.AddSingleton<IConnectionProvider>(new ConnectionProvider("amqp://guest:guest@localhost:5672"));
+            services.AddSingleton<ISubscriber>(x => new Subscriber(x.GetService<IConnectionProvider>(),
+                "report_exchange",
+                "report_queue",
+                "report.*",
+                ExchangeType.Topic
+               ));
+            services.AddHostedService<GetRabbitData>();
 
             services.AddControllers();
 

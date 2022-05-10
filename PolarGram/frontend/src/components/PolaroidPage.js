@@ -30,7 +30,8 @@ const PolaroidPage = (props) => {
         userId: "",
         name: "",
         date: "",
-        imgSrc: ""
+        imgSrc: "",
+        commentCount: ""
     };
     const [post, setPost] = useState(initialPostState);
 
@@ -62,6 +63,7 @@ const PolaroidPage = (props) => {
             .then((response) => {
                 console.log(response.data);
                 retrieveComments();
+                getPost();
             })
             .catch((e) => {
                 console.log(e);
@@ -79,6 +81,7 @@ const PolaroidPage = (props) => {
             .then((res) => {
                 console.log(res.data);
                 retrieveComments();
+                getPost();
                 handleReset();
             })
             .catch((e) => {
@@ -127,7 +130,7 @@ const PolaroidPage = (props) => {
                         style={{ borderRadius: '5px', backgroundColor: "white", marginBottom: "10px", marginLeft: "15px", marginRight: "15px" }}>
                         <div className="row" style={{ padding: "1rem" }}>
                             <div style={{ textAlign: "left", borderRadius: "5px", overflowY: "scroll", height: '330px' }} className="col-md-6 col-sm-6 border">
-                                <h4 style={{ position: "sticky", top: "0", background: "white" }}>Comments:</h4>
+                                <h4 style={{ position: "sticky", top: "0", background: "white" }}>{post.commentCount} comments:</h4>
 
                                 {comments &&
                                     comments.map((comment, index) => (

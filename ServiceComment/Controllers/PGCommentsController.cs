@@ -65,6 +65,9 @@ namespace ServiceComment.Controllers
                 return NotFound();
             }
 
+
+            _pGPublisher.Publish(JsonConvert.SerializeObject(comment), "report.comment", null);
+
             _pGCommentService.Remove(id);
 
             return NoContent();

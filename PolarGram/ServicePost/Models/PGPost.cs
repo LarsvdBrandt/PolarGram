@@ -18,6 +18,11 @@ namespace ServicePost.Models
         public string Date { get; set; }
         public string ImgSrc { get; set; }
         public int CommentCount { get; set; }
+
+        public PGPost()
+        {
+
+        }
     }
 }
 

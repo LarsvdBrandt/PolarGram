@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ServicePost.Data;
 using ServicePost.Models;
 using ServicePost.Services;
+using ServicePost.Services.Implementations;
+using ServicePost.Services.Interfaces;
 
 namespace ServicePost.Controllers
 {
@@ -15,8 +16,8 @@ namespace ServicePost.Controllers
     [ApiController]
     public class PGPostsController : ControllerBase
     {
-        private readonly PGPostService _pGPostService;
-        public PGPostsController(PGPostService PGPostService)
+        private readonly IPGPostService _pGPostService;
+        public PGPostsController(IPGPostService PGPostService)
         {
             _pGPostService = PGPostService;
         }
@@ -28,16 +29,16 @@ namespace ServicePost.Controllers
 
         // GET: api/PGPosts/5
         [HttpGet("{id:length(24)}")]
-        public async Task<ActionResult<PGPost>> GetPGPost(string id)
+        public IActionResult GetPGPost(string id)
         {
-            var post = _pGPostService.Get(id);
+            var post = _pGPostService.GetById(id);
 
             if (post == null)
             {
                 return NotFound();
             }
 
-            return post;
+            return Ok(post);
         }
 
         // POST: api/PGPosts
@@ -59,7 +60,7 @@ namespace ServicePost.Controllers
         [HttpPut("{id:length(24)}")]
         public IActionResult PutPGPost(string id, PGPost PostIn)
         {
-            var post = _pGPostService.Get(id);
+            var post = _pGPostService.GetById(id);
 
             if (post == null)
             {
@@ -74,7 +75,7 @@ namespace ServicePost.Controllers
         [HttpDelete("{id:length(24)}")]
         public IActionResult Delete(string id)
         {
-            var post = _pGPostService.Get(id);
+            var post = _pGPostService.GetById(id);
 
             if (post == null)
             {

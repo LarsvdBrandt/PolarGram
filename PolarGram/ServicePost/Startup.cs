@@ -12,13 +12,13 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using ServicePost.Models;
-using ServicePost.Data;
 using Microsoft.OpenApi.Models;
 using Microsoft.Extensions.Options;
 using ServicePost.Services;
 using Plain.RabbitMQ;
 using RabbitMQ.Client;
 using ServicePost.RabbitMQ;
+using ServicePost.Services.Implementations;
 
 namespace ServicePost
 {

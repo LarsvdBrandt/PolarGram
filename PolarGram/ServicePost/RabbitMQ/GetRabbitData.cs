@@ -5,6 +5,7 @@ using ServicePost.Controllers;
 using ServicePost.Models;
 using ServicePost.RabbitMQ.Controllers;
 using ServicePost.Services;
+using ServicePost.Services.Implementations;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -35,7 +36,7 @@ namespace ServicePost.RabbitMQ
             var comment = JsonConvert.DeserializeObject<PGComment>(message);
             var id = comment.PostId;
 
-            var post = _pGPostService.Get(id);
+            var post = _pGPostService.GetById(id);
 
             if(comment.Id == null)
             {

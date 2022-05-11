@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ServicePost.Models;
 using ServicePost.Services;
+using ServicePost.Services.Implementations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace ServicePost.RabbitMQ.Controllers
         [HttpGet]
         public async Task<ActionResult<PGPost>> GetPost(string id)
         {
-            var post = _pGPostService.Get(id);
+            var post = _pGPostService.GetById(id);
 
             if (post == null)
             {

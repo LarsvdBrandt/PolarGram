@@ -1,13 +1,14 @@
 ﻿using MongoDB.Driver;
 using ServicePost.Models;
+using ServicePost.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ServicePost.Services
+namespace ServicePost.Services.Implementations
 {
-    public class PGPostService
+    public class PGPostService : IPGPostService
     {
         private readonly IMongoCollection<PGPost> _pgPosts;
 
@@ -22,7 +23,7 @@ namespace ServicePost.Services
         public List<PGPost> Get() =>
             _pgPosts.Find(pgPost => true).ToList();
 
-        public PGPost Get(string id) =>
+        public PGPost GetById(string id) =>
             _pgPosts.Find<PGPost>(pgPost => pgPost.Id == id).FirstOrDefault();
 
         public PGPost Create(PGPost pgPost)

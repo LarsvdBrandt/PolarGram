@@ -1,134 +1,183 @@
 using FluentAssertions;
+using Microsoft.AspNetCore.Mvc;
+using Moq;
 using Newtonsoft.Json;
 using ServicePost;
+using ServicePost.Controllers;
 using ServicePost.Models;
+using ServicePost.Services.Implementations;
+using ServicePost.Services.Interfaces;
 using System;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Text.Unicode;
 using System.Threading.Tasks;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace TestServicePost
 {
-    public class TestServicePostController : IClassFixture<CustomWebApplicationFactory<Startup>>
+    public class TestServicePost
     {
-        private readonly HttpClient _client;
-        private readonly CustomWebApplicationFactory<Startup> _factory;
+        private readonly ITestOutputHelper _output;
 
-        public TestServicePostController(
-        CustomWebApplicationFactory<Startup> factory)
+        public TestServicePost(ITestOutputHelper output)
         {
-            _factory = factory;
-            _client = factory.CreateClient();
-
+            _output = output;
         }
 
 
-        /*
-        Deactivate all tests 
-         
-        //get
+        // Mocking Interfaces
+        private Mock<IPGPostService> _iapiTestInterface;
 
-        [Fact]
-        public async Task Get_All_OK()
+        // Controllers 
+        private PGPostsController _controller;
+
+        private void Setup()
         {
-            var response = await _client.GetAsync("/PGPosts");
-
-            response.StatusCode.Should().Be(HttpStatusCode.OK);
-        }
-
-        [Fact]
-        public async Task Get_One_OK()
-        {
-            var response = await _client.GetAsync("/PGPosts/6256cdcf183cd89702594e6f");
-
-            response.StatusCode.Should().Be(HttpStatusCode.OK);
-        }
-
-        [Fact]
-        public async Task Get_One_Not_OK()
-        {
-            var response = await _client.GetAsync("/PGPosts/20");
-
-            response.StatusCode.Should().Be(HttpStatusCode.NotFound);
-        }
-
-        //delete
-        [Fact]
-        public async Task Delete_One_OK()
-        {
-            var response = await _client.DeleteAsync("/PGPosts/6256c3e2752e64bf0a08b1e8");
-
-            response.StatusCode.Should().Be(HttpStatusCode.OK);
-        }
-        [Fact]
-        public async Task Delete_One_Not_OK()
-        {
-            var response = await _client.DeleteAsync("/PGPosts/6256c3e2752e64bf0a08b1e9");
-
-            response.StatusCode.Should().Be(HttpStatusCode.NotFound);
-        }
-
-        //post
-
-        [Fact]
-        public async Task Post_OK()
-        {
-
-            var response = await _client.PostAsync("/PGPosts", new StringContent(JsonConvert.SerializeObject(new PGPost()
+            PGPost SetupPost = new PGPost()
             {
-                Id = "6256c3e2752e64bf0a08b1e",
-                UserId = "userId",
-                Name = "TestName",
-                ImgSrc = "TestImage.jpg",
-                Date = "Date1",
+                Id = "6256c3e2752e64bf0a08b1e8",
+                UserId = "6256c3e2752e64bf0a08f58s",
+                Name = "Lars",
+                Date = "14/05/2002",
+                ImgSrc = "testimg.jpg",
+                CommentCount = 20
+            };
 
-            }), Encoding.UTF8, "application/json"));
+            _iapiTestInterface = new Mock<IPGPostService>();
 
-
-            response.StatusCode.Should().Be(HttpStatusCode.OK);
-
-        }
-
-        //Edit
-        [Fact]
-        public async Task Edit_One_OK()
-        {
-
-            var response = await _client.PutAsync("/PGPosts/6256c3e2752e64bf0a08b1e5", new StringContent(JsonConvert.SerializeObject(new PGPost()
+            _iapiTestInterface.Setup(p => p.GetById("6256c3e2752e64bf0a08b1e5")).Returns(new PGPost()
             {
                 Id = "6256c3e2752e64bf0a08b1e5",
-                UserId = "userId",
-                Name = "TestName",
-                ImgSrc = "TestImage.jpg",
-                Date = "Date1",
+                UserId = "6256c3e2752e64bf0a08f58s",
+                Name="Lars",
+                Date="14/05/2002",
+                ImgSrc="testimg.jpg",
+                CommentCount= 20
+            });
 
-            }), Encoding.UTF8, "application/json"));
+            _iapiTestInterface.Setup(p => p.Create(SetupPost)).Returns(new PGPost()
+            {
+                Id = "6256c3e2752e64bf0a08b1e8",
+                UserId = "6256c3e2752e64bf0a08f58s",
+                Name = "Lars",
+                Date = "14/05/2002",
+                ImgSrc = "testimg.jpg",
+                CommentCount = 20
+            });
 
+            _iapiTestInterface.Setup(p => p.Remove("6256c3e2752e64bf0a08b1e8"));
 
-            response.StatusCode.Should().Be(HttpStatusCode.NoContent);
+            _iapiTestInterface.Setup(p => p.Update("6256c3e2752e64bf0a08b1e8", SetupPost));
 
+            _controller = new PGPostsController(_iapiTestInterface.Object);
         }
 
         [Fact]
-        public async Task Edit_One_Not_OK()
+        public void ReadPostTest()
         {
-
-            var response = await _client.PutAsync("/PGPosts/6256c3e2752e64bf0a08b1e9", new StringContent(JsonConvert.SerializeObject(new PGPost()
+            //Arrange
+            Setup();
+            PGPost expectedPost = new PGPost()
             {
-                Id = "9",
-                Name = "Name9",
-                UserId = "User9",
-                ImgSrc = "Test9.jpg",
-                Date = "Date9",
+                Id = "6256c3e2752e64bf0a08b1e5",
+                UserId = "6256c3e2752e64bf0a08f58s",
+                Name = "Lars",
+                Date = "14/05/2002",
+                ImgSrc = "testimg.jpg",
+                CommentCount = 20
+            };
+                
 
-            }), Encoding.UTF8, "application/json"));
+            //Act
+            IActionResult result = _controller.GetPGPost("6256c3e2752e64bf0a08b1e5");
+            var okResult = result as OkObjectResult;
+
+            var configuration = okResult.Value;
+
+            //Assert
+            Assert.NotNull(okResult);
+            Assert.Equal(200, okResult.StatusCode);
+            Assert.Equal(okResult.Value.ToString(), expectedPost.ToString());
+        }
+         
+        [Fact]
+        public void NewPostTest()
+        {
+            //Arrange
+            Setup();
+            PGPost expectedPost = new PGPost()
+            {
+                Id = "6256c3e2752e64bf0a08b1e8",
+                UserId = "6256c3e2752e64bf0a08f58s",
+                Name = "Lars",
+                Date = "14/05/2002",
+                ImgSrc = "testimg.jpg",
+                CommentCount = 20
+            };
+
+            //Act
+            ActionResult<PGPost> result = _controller.PostPGPost(expectedPost);
+
+            //Assert
+            Assert.NotNull(result);
+            Assert.Equal(result.Value.ToString(), expectedPost.ToString());
+            
+        }
+
+        [Fact]
+        public void DeletePostTest()
+        {
+            //Arrange
+            Setup();
+            PGPost expectedPost = new PGPost()
+            {
+                Id = "6256c3e2752e64bf0a08b1e8",
+                UserId = "6256c3e2752e64bf0a08f58s",
+                Name = "Lars",
+                Date = "14/05/2002",
+                ImgSrc = "testimg.jpg",
+                CommentCount = 20
+            };
+
+            //Act
+            IActionResult result = _controller.Delete(expectedPost.Id);
+            var okResult = result as OkObjectResult;
+
+            IActionResult resultCheck = _controller.GetPGPost("6256c3e2752e64bf0a08b1e8");
+            var okResultCheck = resultCheck as OkObjectResult;
 
 
-            response.StatusCode.Should().Be(HttpStatusCode.NotFound);
+            //Assert
+            Assert.Null(okResultCheck);
+
+         }
+
+        [Fact]
+        public void UpdatePostTest()
+        {
+            //Arrange
+            Setup();
+            PGPost expectedPost = new PGPost()
+            {
+                Id = "6256c3e2752e64bf0a08b1e8",
+                UserId = "6256c3e2752e64bf0a08f58s",
+                Name = "Lars",
+                Date = "14/05/2002",
+                ImgSrc = "testimg.jpg",
+                CommentCount = 20
+            };
+
+            //Act
+            IActionResult result = _controller.PutPGPost(expectedPost.Id, expectedPost);
+            var okResult = result as OkObjectResult;
+
+            //Assert
+            Assert.Null(okResult);
 
         }
-        */
     }
 }

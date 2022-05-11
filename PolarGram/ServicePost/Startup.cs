@@ -18,7 +18,6 @@ using ServicePost.Services;
 using Plain.RabbitMQ;
 using RabbitMQ.Client;
 using ServicePost.RabbitMQ;
-using ServicePost.Services.Implementations;
 
 namespace ServicePost
 {

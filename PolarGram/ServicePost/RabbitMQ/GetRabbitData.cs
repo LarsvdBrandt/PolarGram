@@ -5,7 +5,6 @@ using ServicePost.Controllers;
 using ServicePost.Models;
 using ServicePost.RabbitMQ.Controllers;
 using ServicePost.Services;
-using ServicePost.Services.Implementations;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using ServicePost;
 using ServicePost.Controllers;
 using ServicePost.Models;
-using ServicePost.Services.Implementations;
+using ServicePost.Services;
 using ServicePost.Services.Interfaces;
 using System;
 using System.Diagnostics;

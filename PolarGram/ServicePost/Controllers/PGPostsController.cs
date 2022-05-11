@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ServicePost.Models;
 using ServicePost.Services;
-using ServicePost.Services.Implementations;
 using ServicePost.Services.Interfaces;
 
 namespace ServicePost.Controllers

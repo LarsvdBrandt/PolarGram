@@ -32,21 +32,9 @@ jobs:
         dotnet build --configuration Release --no-restore APIGateway
         dotnet build --configuration Release --no-restore ImageApi
         dotnet build --configuration Release --no-restore ServicePost
-    
-    - name: Move dir
-      run: |
-        cd PolarGram/APIGateway
-    
-    - name: Build and Push Docker Image
-      uses: mr-smithers-excellent/docker-build-push@v4
-      with: 
-        image: 434565/apigateway
-        registry: docker.io
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
         
       
-    #- name: Test
-    #  run: |
-    #    cd PolarGram
-    #    dotnet test TestServicePost
+    - name: Test
+      run: |
+        cd PolarGram
+        dotnet test TestServicePost

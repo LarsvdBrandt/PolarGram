@@ -54,7 +54,7 @@ const PolaroidPost = (props) => {
         formData.append("formFile", file); // appending file
         formData.append("fileName", post.imgSrc); // appending fileName
         axios
-            .post("http://localhost:5000/ImageApi/File", formData)
+            .post("http://localhost:5000/ImageApi/File/upload", formData)
             .then((res) => {
                 console.log("succes");
                 props.history.push("/Discovery");

@@ -24,3 +24,8 @@ services:
     ports:
       - "80"
 
+  servicecomment:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"

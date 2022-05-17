@@ -1,6 +1,13 @@
 version: '3.4'
 
 services:
+  rabbit:
+    image: rabbitmq:3.7.2-management
+    hostname: rabbit
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
   apigateway:
     image: ${DOCKER_REGISTRY-}apigateway
     build:
@@ -18,6 +25,12 @@ services:
     build:
       context: .
       dockerfile: ServicePost/Dockerfile
+
+  servicecomment:
+    image: ${DOCKER_REGISTRY-}servicecomment
+    build:
+      context: .
+      dockerfile: ServiceComments/Dockerfile
 
   frontend:
     image: frontend

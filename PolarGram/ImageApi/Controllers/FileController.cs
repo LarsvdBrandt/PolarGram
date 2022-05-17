@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using ImageApi.Models;
+using ImageApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -14,6 +15,13 @@ namespace ImageApi.Controllers
     [Route("[controller]")]
     public class FileController : ControllerBase
     {
+        private readonly IStorageService _storageService;
+
+        public FileController(IStorageService storageService)
+        {
+            _storageService = storageService;
+        }
+        /*
         [HttpPost]
         public ActionResult Post([FromForm] FileModel file)
         {
@@ -31,6 +39,15 @@ namespace ImageApi.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
+        }
+        */
+
+        [HttpPost]
+        [Route("upload")]
+        public IActionResult Upload([FromForm] FileModel file)
+        {
+            _storageService.Upload(file.FormFile);
+            return Ok();
         }
 
 

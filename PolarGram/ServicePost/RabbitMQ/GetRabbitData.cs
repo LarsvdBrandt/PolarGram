@@ -5,6 +5,7 @@ using ServicePost.Controllers;
 using ServicePost.Models;
 using ServicePost.RabbitMQ.Controllers;
 using ServicePost.Services;
+using ServicePost.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,10 +17,10 @@ namespace ServicePost.RabbitMQ
 {
     public class GetRabbitData : IHostedService
     {
-        private readonly PGPostService _pGPostService;
+        private readonly IPGPostService _pGPostService;
 
         private readonly ISubscriber _pGSubscriber;
-        public GetRabbitData(ISubscriber subscriber, PGPostService PGPostService)
+        public GetRabbitData(ISubscriber subscriber, IPGPostService PGPostService)
         {
             _pGPostService = PGPostService;
             _pGSubscriber = subscriber;

@@ -18,6 +18,7 @@ using ServicePost.Services;
 using Plain.RabbitMQ;
 using RabbitMQ.Client;
 using ServicePost.RabbitMQ;
+using ServicePost.Services.Interfaces;
 
 namespace ServicePost
 {
@@ -40,7 +41,7 @@ namespace ServicePost
             services.AddSingleton<IPGPostSettings>(sp =>
                 sp.GetRequiredService<IOptions<PGPostSettings>>().Value);
 
-            services.AddSingleton<PGPostService>();
+            services.AddSingleton<IPGPostService, PGPostService>();
 
             services.AddSingleton<IConnectionProvider>(new ConnectionProvider("amqp://guest:guest@localhost:5672"));
             services.AddSingleton<ISubscriber>(x => new Subscriber(x.GetService<IConnectionProvider>(),

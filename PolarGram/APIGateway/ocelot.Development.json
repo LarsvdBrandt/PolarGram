@@ -6,8 +6,8 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          //"Host": "servicepost",
           "Port": 5001
+          //"Host": "servicepost",
           //"Port": 80
         }
       ],
@@ -19,9 +19,9 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          //"Host": "imageapi",
-          //"Port": 80,
           "Port": 5002
+          //"Host": "imageapi",
+          //"Port": 80
         }
       ],
       "UpstreamPathTemplate": "/ImageApi/{CatchAll}"
@@ -32,8 +32,8 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          //"Host": "servicepost",
           "Port": 5003
+          //"Host": "servicecomment",
           //"Port": 80
         }
       ],

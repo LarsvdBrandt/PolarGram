@@ -13,6 +13,8 @@ namespace ImageApi
     {
         public static void Main(string[] args)
         {
+            string connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
+
             CreateHostBuilder(args).Build().Run();
         }
 

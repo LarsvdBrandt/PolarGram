@@ -3,17 +3,19 @@
 FROM mcr.microsoft.com/dotnet/aspnet:3.1 AS base
 WORKDIR /app
 EXPOSE 80
+EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY ["ImageApi/ImageApi.csproj", "ImageApi/"]
-RUN dotnet restore "ImageApi/ImageApi.csproj"
-COPY . .
-WORKDIR "/src/ImageApi"
-RUN dotnet build "ImageApi.csproj" -c Release -o /app/build
+COPY ["./ImageApi.csproj", "./"]
+RUN dotnet restore "./ImageApi.csproj"
+
+COPY . ./
+#WORKDIR "/src/ImageApi"
+RUN dotnet build "./ImageApi.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "ImageApi.csproj" -c Release -o /app/publish
+RUN dotnet publish "./ImageApi.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app

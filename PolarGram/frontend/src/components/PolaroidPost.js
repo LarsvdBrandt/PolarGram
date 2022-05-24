@@ -16,7 +16,7 @@ const PolaroidPost = (props) => {
     const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
 
     const history = useHistory();
-    const [post, setPost] = useState({ userId: user.sub.split("|")[1], name: user.nickname, imgSrc: "", date: date });
+    const [post, setPost] = useState({ userId: user['sub'].split("|")[1], name: user.nickname, imgSrc: "", date: date });
     const [message, setMessage] = useState("");
 
     const [file, setFile] = useState(""); // storing the uploaded file
@@ -52,7 +52,7 @@ const PolaroidPost = (props) => {
 
         const formData = new FormData();
         formData.append("formFile", file); // appending file
-        formData.append("fileName", user.sub.split("|")[1] + sub.post.imgSrc); // appending fileName
+        formData.append("fileName", user['sub'].split("|")[1] + post.imgSrc); // appending fileName
         axios
             .post("http://localhost:5000/ImageApi/File/upload", formData)
             .then((res) => {

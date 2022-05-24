@@ -1,0 +1,34 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: servicecomment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: servicecomment
+    spec:
+      containers:
+        - name: servicecomment
+          image: 434565/servicecomment:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: ASPNETCORE_URLS
+              value: http://*:80
+  selector:
+    matchLabels:
+      app: servicecomment
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: servicecomment
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+  selector:
+    app: servicecomment

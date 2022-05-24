@@ -43,7 +43,7 @@ namespace ServicePost
 
             services.AddSingleton<IPGPostService, PGPostService>();
 
-            services.AddSingleton<IConnectionProvider>(new ConnectionProvider("amqp://guest:guest@rabbit:5672"));
+            services.AddSingleton<IConnectionProvider>(new ConnectionProvider("amqp://guest:guest@localhost:5672"));
             services.AddSingleton<ISubscriber>(x => new Subscriber(x.GetService<IConnectionProvider>(),
                 "report_exchange",
                 "report_queue",

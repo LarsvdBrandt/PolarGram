@@ -117,7 +117,7 @@ const PolaroidPage = (props) => {
                 <div className="row">
                     <div className="col-md-3 col-sm-6">
                         <Card style={{ width: '100%', height: '370px', marginBottom: "10px" }}>
-                            <Card.Img variant="top" src={"http://localhost:5000/imageapi/images/" + post.imgSrc} style={{ paddingTop: '2rem', paddingLeft: '1.5rem', paddingRight: '1.5rem', height: '260px' }} />
+                            <Card.Img variant="top" src={"https://blobstoragepolar.blob.core.windows.net/fileupload/" + post.imgSrc} style={{ paddingTop: '2rem', paddingLeft: '1.5rem', paddingRight: '1.5rem', height: '260px' }} />
                             <Card.Body>
                                 <Card.Title style={{ textAlign: 'left' }}>{post.name}</Card.Title>
                                 <Card.Text style={{ textAlign: 'left' }}>

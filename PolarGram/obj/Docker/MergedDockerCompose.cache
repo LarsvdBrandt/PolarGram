@@ -50,6 +50,9 @@ services:
     build:
       context: D:\repos\PolarGram\PolarGram
       dockerfile: ServiceComments/Dockerfile
+    depends_on:
+      rabbit:
+        condition: service_started
     environment:
       ASPNETCORE_ENVIRONMENT: Development
     image: servicecomment
@@ -59,6 +62,9 @@ services:
     build:
       context: D:\repos\PolarGram\PolarGram
       dockerfile: ServicePost/Dockerfile
+    depends_on:
+      rabbit:
+        condition: service_started
     environment:
       ASPNETCORE_ENVIRONMENT: Development
     image: servicepost

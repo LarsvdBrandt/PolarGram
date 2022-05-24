@@ -4,6 +4,6 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup>
-    <ActiveDebugProfile>ImageApi</ActiveDebugProfile>
+    <ActiveDebugProfile>Docker (1)</ActiveDebugProfile>
   </PropertyGroup>
 </Project>

@@ -1,13 +1,6 @@
 version: '3.4'
 
 services:
-  rabbit:
-    image: rabbitmq:3.7.2-management
-    hostname: rabbit
-    ports:
-      - "15672:15672"
-      - "5672:5672"
-
   apigateway:
     image: ${DOCKER_REGISTRY-}apigateway
     build:
@@ -19,6 +12,7 @@ services:
     build:
       context: .
       dockerfile: ImageApi/Dockerfile
+
 
   servicepost:
     image: ${DOCKER_REGISTRY-}servicepost
@@ -45,3 +39,10 @@ services:
       - './frontend:/app'
     environment:
       - CHOKIDAR_USEPOLLING=true
+
+  rabbit:
+    image: rabbitmq:3.7.2-management
+    hostname: rabbit
+    ports:
+      - "15672:15672"
+      - "5672:5672"

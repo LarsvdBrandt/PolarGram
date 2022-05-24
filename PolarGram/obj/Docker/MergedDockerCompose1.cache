@@ -1,0 +1,170 @@
+services:
+  apigateway:
+    build:
+      context: D:\repos\PolarGram\PolarGram
+      dockerfile: APIGateway/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: APIGateway
+      target: base
+    container_name: APIGateway
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: apigateway:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "/app/bin/Debug/netcoreapp3.1/APIGateway.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 5000
+      target: 80
+    - published: 6000
+      target: 443
+    tty: true
+    volumes:
+    - D:\repos\PolarGram\PolarGram\APIGateway:/app:rw
+    - C:\Users\larsv\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\larsv\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\larsv\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\larsv\.nuget\packages:/root/.nuget/packages:ro
+    - D:\repos\PolarGram\PolarGram:/src:rw
+  frontend:
+    build:
+      context: D:\repos\PolarGram\PolarGram
+      dockerfile: ./frontend/Dockerfile
+    container_name: frontend
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+    image: frontend
+    ports:
+    - published: 3001
+      target: 3000
+    stdin_open: true
+    volumes:
+    - D:\repos\PolarGram\PolarGram\frontend:/app:rw
+  imageapi:
+    build:
+      context: D:\repos\PolarGram\PolarGram
+      dockerfile: ImageApi/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: ImageApi
+      target: base
+    container_name: ImageApi
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: imageapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "/app/bin/Debug/netcoreapp3.1/ImageApi.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - target: 80
+    tty: true
+    volumes:
+    - D:\repos\PolarGram\PolarGram\ImageApi:/app:rw
+    - C:\Users\larsv\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\larsv\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\larsv\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\larsv\.nuget\packages:/root/.nuget/packages:ro
+    - D:\repos\PolarGram\PolarGram:/src:rw
+  rabbit:
+    hostname: rabbit
+    image: rabbitmq:3.7.2-management
+    ports:
+    - published: 5672
+      target: 5672
+    - published: 15672
+      target: 15672
+  servicecomment:
+    build:
+      context: D:\repos\PolarGram\PolarGram
+      dockerfile: ServiceComments/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: ServiceComment
+      target: base
+    container_name: ServiceComment
+    depends_on:
+      rabbit:
+        condition: service_started
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: servicecomment:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "/app/bin/Debug/netcoreapp3.1/ServiceComment.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - target: 80
+    tty: true
+    volumes:
+    - D:\repos\PolarGram\PolarGram\ServiceComments:/app:rw
+    - C:\Users\larsv\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\larsv\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\larsv\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\larsv\.nuget\packages:/root/.nuget/packages:ro
+    - D:\repos\PolarGram\PolarGram:/src:rw
+  servicepost:
+    build:
+      context: D:\repos\PolarGram\PolarGram
+      dockerfile: ServicePost/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: ServicePost
+      target: base
+    container_name: ServicePost
+    depends_on:
+      rabbit:
+        condition: service_started
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: servicepost:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "/app/bin/Debug/netcoreapp3.1/ServicePost.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - target: 80
+    tty: true
+    volumes:
+    - D:\repos\PolarGram\PolarGram\ServicePost:/app:rw
+    - C:\Users\larsv\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\larsv\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\larsv\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\larsv\.nuget\packages:/root/.nuget/packages:ro
+    - D:\repos\PolarGram\PolarGram:/src:rw
+version: '3.4'

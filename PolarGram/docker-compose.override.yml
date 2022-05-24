@@ -23,9 +23,20 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "80"
+    depends_on: 
+        - rabbit
 
   servicecomment:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "80"
+    depends_on: 
+        - rabbit
+
+  rabbit:
+    image: rabbitmq:3.7.2-management
+    hostname: rabbit
+    ports:
+      - "15672:15672"
+      - "5672:5672"

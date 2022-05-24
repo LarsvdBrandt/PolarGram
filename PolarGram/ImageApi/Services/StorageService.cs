@@ -1,4 +1,5 @@
 ﻿using Azure.Storage.Blobs;
+using ImageApi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -29,6 +30,20 @@ namespace ImageApi.Services
             using var stream = formFile.OpenReadStream();
             blobClient.Upload(stream, true);
         }
+
+        /*
+        public async Task<BlobInfo> GetBlobAsync(string name)
+        {
+            var containerName = _configuration.GetSection("Storage:ContainerName").Value;
+
+            var containerClient = _blobServiceClient.GetBlobContainerClient(containerName);
+            var blobClient = containerClient.GetBlobClient(name);
+            var blobDownloadInfo = await blobClient.DownloadAsync();
+
+            return new BlobInfo(blobDownloadInfo.Value.Content, blobDownloadInfo.Value.ContentType);
+        }
+        */
+        
 
     }
 }

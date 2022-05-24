@@ -47,7 +47,6 @@ D:\repos\PolarGram\PolarGram\APIGateway\bin\Debug\netcoreapp3.1\Microsoft.Extens
 D:\repos\PolarGram\PolarGram\APIGateway\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\repos\PolarGram\PolarGram\APIGateway\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 D:\repos\PolarGram\PolarGram\APIGateway\bin\Debug\netcoreapp3.1\Ocelot.dll
-D:\repos\PolarGram\PolarGram\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.csproj.AssemblyReference.cache
 D:\repos\PolarGram\PolarGram\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.GeneratedMSBuildEditorConfig.editorconfig
 D:\repos\PolarGram\PolarGram\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.AssemblyInfoInputs.cache
 D:\repos\PolarGram\PolarGram\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.AssemblyInfo.cs
@@ -60,3 +59,4 @@ D:\repos\PolarGram\PolarGram\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.cspro
 D:\repos\PolarGram\PolarGram\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.dll
 D:\repos\PolarGram\PolarGram\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.pdb
 D:\repos\PolarGram\PolarGram\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.genruntimeconfig.cache
+D:\repos\PolarGram\PolarGram\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.csproj.AssemblyReference.cache

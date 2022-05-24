@@ -50,6 +50,14 @@ namespace ImageApi.Controllers
             return Ok();
         }
 
+        /*
+        [HttpGet("{blobName}")]
+        public async Task<IActionResult> GetBlob(string blobName)
+        {
+            var data = await _storageService.GetBlobAsync(blobName);
+            return File(data.Content, data.ContentType);
+        }
+        */
 
         // GET: api/SFPosts
         [HttpGet]

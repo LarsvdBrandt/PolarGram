@@ -40,7 +40,7 @@ namespace ServiceComment
 
             services.AddSingleton<PGCommentService>();
 
-            services.AddSingleton<IConnectionProvider>(new ConnectionProvider("amqp://guest:guest@localhost:5672"));
+            services.AddSingleton<IConnectionProvider>(new ConnectionProvider("amqp://guest:guest@rabbit:5672"));
             services.AddScoped<IPublisher>(x => new Publisher(x.GetService<IConnectionProvider>(),
                 "report_exchange",
                 ExchangeType.Topic

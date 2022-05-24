@@ -167,7 +167,6 @@ D:\repos\PolarGram\PolarGram\ServiceComments\bin\Debug\netcoreapp3.1\runtimes\wi
 D:\repos\PolarGram\PolarGram\ServiceComments\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\repos\PolarGram\PolarGram\ServiceComments\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\repos\PolarGram\PolarGram\ServiceComments\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\repos\PolarGram\PolarGram\ServiceComments\obj\Debug\netcoreapp3.1\ServiceComment.csproj.AssemblyReference.cache
 D:\repos\PolarGram\PolarGram\ServiceComments\obj\Debug\netcoreapp3.1\ServiceComment.GeneratedMSBuildEditorConfig.editorconfig
 D:\repos\PolarGram\PolarGram\ServiceComments\obj\Debug\netcoreapp3.1\ServiceComment.AssemblyInfoInputs.cache
 D:\repos\PolarGram\PolarGram\ServiceComments\obj\Debug\netcoreapp3.1\ServiceComment.AssemblyInfo.cs
@@ -180,3 +179,4 @@ D:\repos\PolarGram\PolarGram\ServiceComments\obj\Debug\netcoreapp3.1\ServiceComm
 D:\repos\PolarGram\PolarGram\ServiceComments\obj\Debug\netcoreapp3.1\ServiceComment.dll
 D:\repos\PolarGram\PolarGram\ServiceComments\obj\Debug\netcoreapp3.1\ServiceComment.pdb
 D:\repos\PolarGram\PolarGram\ServiceComments\obj\Debug\netcoreapp3.1\ServiceComment.genruntimeconfig.cache
+D:\repos\PolarGram\PolarGram\ServiceComments\obj\Debug\netcoreapp3.1\ServiceComment.csproj.AssemblyReference.cache

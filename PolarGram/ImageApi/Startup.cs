@@ -43,16 +43,13 @@ namespace ImageApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
             //note: re-enable cors when deployed.
             app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseDefaultFiles();
 
             //serve saved images.
-            app.UseStaticFiles(new StaticFileOptions
-            {
-                FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "UploadImages")),
-                RequestPath = "/images"
-            });
+
 
             app.UseRouting();
 

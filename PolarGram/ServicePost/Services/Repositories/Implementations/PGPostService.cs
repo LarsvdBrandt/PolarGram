@@ -26,6 +26,9 @@ namespace ServicePost.Services
         public PGPost GetById(string id) =>
             _pgPosts.Find<PGPost>(pgPost => pgPost.Id == id).FirstOrDefault();
 
+        public List<PGPost> GetByUserId(string id) =>
+            _pgPosts.Find(pgPost => pgPost.UserId == id).ToList();
+
         public PGPost Create(PGPost pgPost)
         {
             _pgPosts.InsertOne(pgPost);
@@ -40,5 +43,8 @@ namespace ServicePost.Services
 
         public void Remove(string id) =>
             _pgPosts.DeleteOne(pgPost => pgPost.Id == id);
+
+        public void RemoveByUser(string id) =>
+            _pgPosts.DeleteMany(pgPost => pgPost.UserId == id);
     }
 }

@@ -10,9 +10,11 @@ namespace ServicePost.Services.Interfaces
     {
         List<PGPost> Get();
         PGPost GetById(string id);
+        List<PGPost> GetByUserId(string id);
         PGPost Create(PGPost pgPost);
         void Update(string id, PGPost pgPostIn);
         void Remove(PGPost pgPostIn);
         void Remove(string id);
+        void RemoveByUser(string id);
     }
 }

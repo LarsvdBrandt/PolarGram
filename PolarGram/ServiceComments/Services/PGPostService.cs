@@ -42,5 +42,10 @@ namespace ServiceComment.Services
 
         public void Remove(string id) =>
             _pgComments.DeleteOne(pgComment => pgComment.Id == id);
+
+        public void RemoveByUser(string id) =>
+            _pgComments.DeleteMany(pgPost => pgPost.UserId == id);
+        public List<PGComment> GetByUserId(string id) =>
+            _pgComments.Find(pgPost => pgPost.UserId == id).ToList();
     }
 }

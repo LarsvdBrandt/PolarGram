@@ -53,6 +53,35 @@ namespace ServicePost.Controllers
             //return CreatedAtRoute("GetPost", new { id = post.Id.ToString() }, post);
         }
 
+        // GET: api/PGComments/userId
+        [HttpGet("ByUserId/{id}")]
+        public IActionResult GetPGPostByUser(string id)
+        {
+            var post = _pGPostService.GetByUserId(id);
+
+            if (post == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(post);
+        }
+
+        [HttpDelete("DeleteByUserId/{id}")]
+        public IActionResult RemoveByUser(string id)
+        {
+            var post = _pGPostService.GetByUserId(id);
+
+            if (post == null)
+            {
+                return NotFound();
+            }
+
+            _pGPostService.RemoveByUser(id);
+
+            return NoContent();
+        }
+
         // PUT: api/PGPosts/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.

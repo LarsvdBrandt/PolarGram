@@ -37,6 +37,34 @@ namespace ServiceComment.Controllers
             return comment;
         }
 
+        [HttpGet("ByUserId/{id}")]
+        public IActionResult GetPGCommentsByUser(string id)
+        {
+            var post = _pGCommentService.GetByUserId(id);
+
+            if (post == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(post);
+        }
+
+        [HttpDelete("DeleteByUserId/{id}")]
+        public IActionResult RemoveByUser(string id)
+        {
+            var post = _pGCommentService.GetByUserId(id);
+
+            if (post == null)
+            {
+                return NotFound();
+            }
+
+            _pGCommentService.RemoveByUser(id);
+
+            return NoContent();
+        }
+
         // GET: api/PGPosts
         [HttpGet]
         public ActionResult<List<PGComment>> Get() =>

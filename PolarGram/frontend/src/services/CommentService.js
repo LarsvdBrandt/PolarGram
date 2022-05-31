@@ -16,8 +16,18 @@ const remove = (id) => {
   return http.delete(BaseUri + "/" + id);
 };
 
+const removeByUser = (id) => {
+  return http.delete(BaseUri + "/DeleteByUserId/" + id);
+};
+
+const getAllByUser = (id) => {
+  return http.get(BaseUri + "/ByUserId/" + id);
+};
+
 
 export default {
+  getAllByUser,
+  removeByUser,
   getAll,
   getAllByPostId,
   create,

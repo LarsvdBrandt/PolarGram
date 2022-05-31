@@ -13,11 +13,6 @@ spec:
       containers:
         - name: servicecomment
           image: 434565/servicecomment:latest
-          ports:
-            - containerPort: 80
-          env:
-            - name: ASPNETCORE_URLS
-              value: http://*:80
   selector:
     matchLabels:
       app: servicecomment
@@ -25,7 +20,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: servicecomment
+  name: servicecomment-clusterip-svc
 spec:
   type: ClusterIP
   ports:

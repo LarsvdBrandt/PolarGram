@@ -10,4 +10,6 @@ kubectl delete -f .\imageapi-deploy.yaml
 
 kubectl delete -f .\apigateway-deploy.yaml
 
+kubectl delete -f .\rabbitmq-deploy.yaml
+
 kubectl get services

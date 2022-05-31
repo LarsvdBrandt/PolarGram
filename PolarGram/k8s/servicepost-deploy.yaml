@@ -13,11 +13,6 @@ spec:
       containers:
         - name: servicepost
           image: 434565/servicepost:latest
-          ports:
-            - containerPort: 80
-          env:
-            - name: ASPNETCORE_URLS
-              value: http://*:80
   selector:
     matchLabels:
       app: servicepost
@@ -25,7 +20,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: servicepost
+  name: servicepost-clusterip-svc
 spec:
   type: ClusterIP
   ports:

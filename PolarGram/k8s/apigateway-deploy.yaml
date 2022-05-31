@@ -13,11 +13,6 @@ spec:
       containers:
         - name: apigateway
           image: 434565/apigateway:latest
-          ports:
-            - containerPort: 80
-          env:
-            - name: ASPNETCORE_URLS
-              value: http://*:80
   selector:
     matchLabels:
       app: apigateway
@@ -25,10 +20,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: apigateway
+  name: gateway-loadbalancer
 spec:
-  type: ClusterIP
-  ports:
-    - port: 80
+  type: LoadBalancer
   selector:
     app: apigateway
+  ports:
+    - name: apigateway-port
+      protocol: TCP
+      port: 8080
+      targetPort: 80

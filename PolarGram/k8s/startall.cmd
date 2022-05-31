@@ -1,3 +1,5 @@
+kubectl apply -f .\rabbitmq-deploy.yaml
+
 kubectl apply -f .\frontend-np-service.yaml
 
 kubectl apply -f .\frontend-deploy.yaml

@@ -5,6 +5,7 @@ import { Route, Redirect, RouteProps } from 'react-router-dom';
 import PostService from "../services/PostService";
 import CommentService from "../services/CommentService";
 import { Link } from "react-router-dom";
+import { Modal, Button } from "react-bootstrap";
 
 function ProfilePage() {
     const { isAuthenticated } = useAuth0();
@@ -13,6 +14,11 @@ function ProfilePage() {
     const { logout } = useAuth0();
     const [postData, setPostData] = useState([]);
     const [commentData, setCommentData] = useState([]);
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const getUserData = (event) => {
         event.preventDefault();
@@ -61,6 +67,8 @@ function ProfilePage() {
             .catch((e) => {
                 console.log(e.message);
             });
+
+        handleClose();
 
     };
 
@@ -132,7 +140,7 @@ function ProfilePage() {
                                     <button onClick={clearUserData} className="btn btn-primary w-100" type="button">Clear user data</button>
                                 </div>
                                 <div className="col-md-4">
-                                    <button onClick={deleteUserData} className="btn btn-danger w-100" type="button">Delete user data</button>
+                                    <Button onClick={handleShow} className="btn btn-danger w-100" type="button">Delete user data</Button>
                                 </div>
                             </div>
                             <br />
@@ -202,38 +210,23 @@ function ProfilePage() {
                         </div>
                     </div>
                 </div>
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Delete user data</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body><p>Are you sure you want to delete all user data?</p>
+                        <p>This includes all posts and comments you have made so far.</p>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Cancel
+                        </Button>
+                        <Button variant="danger" onClick={deleteUserData}>
+                            Delete all user data
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
             </section>
-
-            // {/* <div>
-            //         <section className="content-section" id="title">
-            //             <div className="container">
-            //                 <form id="login-form" className="form" action="" method="post">
-            // <h3 className="text-center">Profile page for {user.nickname}</h3>
-            // <div className="row">
-            //                         <div className="col-md-6">
-            // <img src={user.picture}
-            //     alt="Profile"
-            //     className="nav-user-profile rounded-circle"
-            //     width="30"
-            // />
-            //                             <p>{user.given_name}</p>
-            //                             <p>{user.family_name}</p>
-            //                             <p>{user.email}</p>
-            //                             <p>{user.phone_number}</p>
-            //                         </div>
-            //                         <div className="col-md-6">
-            //                             <div className="form-group">
-            //                                 <button type="submit" className="btn btn-primary btn-lg btn-block login-button"> Login </button>
-            //                             </div>
-            //                             <div className="form-group text-center">
-            //                                 <a onClick={() => logout()} className="nav-link"> Logout </a>
-            //                             </div>
-            //                         </div>
-            //                     </div>
-            //                 </form>
-            //             </div>
-            //         </section>
-            //     </div> */}
         );
     }
 }

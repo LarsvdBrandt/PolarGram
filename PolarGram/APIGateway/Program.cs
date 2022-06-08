@@ -18,14 +18,11 @@ namespace APIGateway
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((Host, config) => {
+                .ConfigureAppConfiguration((Host, config) =>
+                {
                     config.AddJsonFile("appsettings.json");
+                    config.AddJsonFile("ocelot.Development.json");
 
-                    var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-                    if (env != null)
-                    {
-                        config.AddJsonFile($"ocelot.{env}.json");
-                    }
 
                 })
                 .ConfigureWebHostDefaults(webBuilder =>

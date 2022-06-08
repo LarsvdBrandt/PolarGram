@@ -67,7 +67,7 @@ function ProfilePage() {
             .catch((e) => {
                 console.log(e.message);
             });
-
+        logout()
         handleClose();
 
     };

@@ -1,43 +1,37 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/{CatchAll}",
+      "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
           "Port": 5001
-          //"Host": "servicepost",
-          //"Port": 80
         }
       ],
-      "UpstreamPathTemplate": "/ServicePost/{CatchAll}"
+      "UpstreamPathTemplate": "/ServicePost/{everything}"
     },
     {
-      "DownstreamPathTemplate": "/{CatchAll}",
+      "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
           "Port": 5002
-          //"Host": "imageapi",
-          //"Port": 80
         }
       ],
-      "UpstreamPathTemplate": "/ImageApi/{CatchAll}"
+      "UpstreamPathTemplate": "/ImageApi/{everything}"
     },
     {
-      "DownstreamPathTemplate": "/{CatchAll}",
+      "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
           "Port": 5003
-          //"Host": "servicecomment",
-          //"Port": 80
         }
       ],
-      "UpstreamPathTemplate": "/ServiceComment/{CatchAll}"
+      "UpstreamPathTemplate": "/ServiceComment/{everything}"
     },
     {
       "DownstreamPathTemplate": "/{CatchAll}",
@@ -52,6 +46,7 @@
     }
   ],
   "GlobalConfiguration": {
+    "RequestIdKey": "OcRequestId",
     "BaseUrl": "http://localhost:5000"
   }
 }

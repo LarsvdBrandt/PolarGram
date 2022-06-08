@@ -97,7 +97,7 @@ function LandingPage() {
                 </div>
                 <div className="service-content">
                   <h3>Comment</h3>
-                  <p>Coment on your own post, or comment on a post that you like on the discovery page!</p>
+                  <p>Comment on your own post, or comment on a post that you like on the discovery page!</p>
                   {!isAuthenticated && (
                     <a className="btn btn-primary btn-sm" style={{ marginTop: '20%' }} onClick={() => loginWithRedirect()} >Login before commenting</a>
                   )}

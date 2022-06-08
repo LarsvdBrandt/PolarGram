@@ -20,10 +20,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: imageapi-clusterip-svc
+  name: imageapi-clusterip-srv
 spec:
   type: ClusterIP
-  ports:
-    - port: 80
   selector:
     app: imageapi
+  ports:
+    - name: imageapi
+      protocol: TCP
+      port: 80
+      targetPort: 80

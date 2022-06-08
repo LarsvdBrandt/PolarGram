@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PostService from "../services/PostService";
-import { Container, Row, Col, Card } from "react-bootstrap";
-import * as Icon from 'react-bootstrap-icons';
+import { Card } from "react-bootstrap";
 
 
 function Discovery() {

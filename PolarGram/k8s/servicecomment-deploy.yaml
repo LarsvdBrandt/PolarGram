@@ -20,10 +20,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: servicecomment-clusterip-svc
+  name: servicecomment-clusterip-srv
 spec:
   type: ClusterIP
-  ports:
-    - port: 80
   selector:
     app: servicecomment
+  ports:
+    - name: servicecomment
+      protocol: TCP
+      port: 80
+      targetPort: 80

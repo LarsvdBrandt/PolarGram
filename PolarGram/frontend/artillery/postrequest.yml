@@ -1,0 +1,21 @@
+config:
+  target: "http://localhost:8080"
+  phases:
+    - duration: 5
+      arrivalRate: 20
+  payload:
+    path: "post.csv"
+    fields:
+      - "userId"
+      - "name"
+      - "date"
+      - "imgSrc"
+scenarios:
+  - flow:
+      - post:
+          url: "/ServicePost/PGPosts"
+          json:
+            userId: "{{ userId }}"
+            name: "{{ name }}"
+            date: "{{ date }}"
+            imgSrc: "{{ imgSrc }}"

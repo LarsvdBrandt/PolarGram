@@ -31,7 +31,7 @@ namespace ServicePost.Services
 
         public PGPost Create(PGPost pgPost)
         {
-            _pgPosts.InsertOne(pgPost);
+             _pgPosts.InsertOne(pgPost);
             return pgPost;
         }
 

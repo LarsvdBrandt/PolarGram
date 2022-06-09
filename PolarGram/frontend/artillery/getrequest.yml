@@ -1,0 +1,16 @@
+config:
+  target: "http://localhost:8080"
+  phases:
+    - duration: 30
+      arrivalRate: 300
+  payload:
+    path: "post.csv"
+    fields:
+      - "userId"
+      - "name"
+      - "date"
+      - "imgSrc"
+scenarios:
+  - flow:
+      - get:
+          url: "/ServicePost/PGPosts/62a0b022f06ae47d068b39b6"

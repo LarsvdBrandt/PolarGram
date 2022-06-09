@@ -12,4 +12,6 @@ kubectl apply -f .\imageapi-deploy.yaml
 
 kubectl apply -f .\apigateway-deploy.yaml
 
+kubectl apply -f .\autoscaler.yml
+
 kubectl get services

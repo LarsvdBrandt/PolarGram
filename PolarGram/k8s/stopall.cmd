@@ -12,4 +12,6 @@ kubectl delete -f .\apigateway-deploy.yaml
 
 kubectl delete -f .\rabbitmq-deploy.yaml
 
+kubectl delete -f .\autoscaler.yml
+
 kubectl get services

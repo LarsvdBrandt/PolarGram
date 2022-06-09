@@ -20,10 +20,10 @@ spec:
           resources:
             requests:
               memory: "50Mi"
-              cpu: "500m"
+              cpu: "200m"
             limits:
-              memory: "500Mi"
-              cpu: "2000m"
+              memory: "100Mi"
+              cpu: "400m"
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       securityContext: {}

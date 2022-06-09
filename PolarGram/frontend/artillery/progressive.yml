@@ -1,0 +1,21 @@
+config:
+  target: "http://localhost:8080"
+  phases:
+    - duration: 30
+      arrivalRate: 10
+      rampTo: 50
+      name: "warm up the application"
+    - duration: 30
+      arrivalRate: 50
+      name: "heavy load testing"
+  payload:
+    path: "post.csv"
+    fields:
+      - "userId"
+      - "name"
+      - "date"
+      - "imgSrc"
+scenarios:
+  - flow:
+      - get:
+          url: "/ServicePost/PGPosts/62a0ab9cf06ae47d068b3989"

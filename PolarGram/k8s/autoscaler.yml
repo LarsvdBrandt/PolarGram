@@ -9,4 +9,4 @@ spec:
     name: servicepost-depl
   minReplicas: 1
   maxReplicas: 5
-  targetCPUUtilizationPercentage: 50
+  targetCPUUtilizationPercentage: 10

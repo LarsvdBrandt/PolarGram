@@ -1,8 +1,8 @@
 config:
   target: "http://localhost:8080"
   phases:
-    - duration: 30
-      arrivalRate: 300
+    - duration: 10
+      arrivalRate: 2
   payload:
     path: "post.csv"
     fields:

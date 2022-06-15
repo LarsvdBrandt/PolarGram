@@ -39,43 +39,14 @@ describe("Post component tests", () => {
 
     it("Test render", async () => {
 
-        /*
-        render(
-            <MemoryRouter initialEntries={["/PolaroidPage/6295e41ecd2ed7deaf58631b"]}>
-                <PolaroidPage />
-            </MemoryRouter>
-        );
-
-        await waitFor(() =>
-            expect(screen.queryByTestId("comment-input-string")).toBeInTheDocument()
-        );
-
-        const commentValue = "testDeleteComment"
-
-        const inputComment = screen.queryByTestId("comment-input-string");
-        fireEvent.change(inputComment, { target: { value: commentValue } });
-        expect(inputComment.value).toBe(commentValue);
-
-        const inputSubmit = screen.queryByTestId("comment-input-submit");
-        fireEvent.click(inputSubmit);
-        // const header = await screen.findByText("Image:");
-        // expect(header).toBeInTheDocument();
-        */
-
         render(
             <MemoryRouter initialEntries={["/PolaroidPage/62a093218243efcbe2ceb937"]}>
                 <PolaroidPage />
             </MemoryRouter>
         );
         const commentValue = "testDeleteComment"
-        //const headerComment = await screen.findByText("User: " + commentValue);
-        //expect(headerComment).toBeInTheDocument();
 
-
-
-        //const deleteInput = await screen.findByText(commentValue);
         const deleteInput = screen.queryByTestId("comment-delete-input");
-        //expect(deleteInput).toBeInTheDocument();
         await fireEvent.click(deleteInput);
 
         render(
